@@ -11,6 +11,4 @@ Qt is a free and open-source widget toolkit for creating graphical user interfac
 
 License
 
-This package is released under LGPLv3
-
-Qt itself is licensed and available under multiple licenses.
+Qt is licensed and available under multiple licenses.
