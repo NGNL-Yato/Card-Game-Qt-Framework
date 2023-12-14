@@ -1,0 +1,6 @@
+#include "Deckk"
+
+Deckk::Deckk()
+{
+
+}

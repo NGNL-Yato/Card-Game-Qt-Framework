@@ -1,0 +1,138 @@
+#include "Npc.h"
+#include <QFile>
+
+npc::npc(){}
+npc::npc (Deckk* deckk,field* Fieldd) : deck(deckk) ,Field(Fieldd) {
+    score = 0;
+    Turn = false;
+}
+
+npc::~npc () {};
+
+bool npc::setTurn () {
+    if(Turn){
+        Turn = false;
+        qDebug() << " tpassa tour dial bot  "<<Turn;
+        return Turn;
+    } else {
+        Turn =true;
+        qDebug() << " tour dial lbot "<<Turn;
+        return Turn;
+    }
+}
+
+int npc::getCurrentScore () {
+    return score;
+}
+
+int npc::Updatescore (bool Win) {
+    if(Win){
+        return score++;
+    } else {
+        return -1;
+    }
+}
+
+QVBoxLayout* npc::ShowCardImg () {
+    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/BackCard.png");
+    QFile file(CurrentcardImg);
+    if (!file.exists()) {
+        qDebug() << "File not found: " << CurrentcardImg;
+    }
+    //qDebug() << "File found : " << CurrentcardImg;
+    QImage* CardImg = new QImage(CurrentcardImg);
+    //qDebug() << "I append the img ";
+    qDebug() <<CardImg->size();
+    CardLabel = new QLabel;
+    //qDebug() << "I append to it the label ";
+    CardLabel->setPixmap(QPixmap::fromImage(CardImg->scaledToHeight(140)));
+    CardLabel->setFixedSize(110, 155);
+    //qDebug() << "I fix its size";
+    qDebug() <<CardLabel->size();
+    QVBoxLayout* Cardzone = new QVBoxLayout;
+    //qDebug() << "I fix its boxlayout ";
+    Cardzone->addWidget(CardLabel);
+    //qDebug() << "I create the complete ";
+    qDebug() <<Cardzone->sizeHint();
+    return Cardzone;
+}
+
+bool npc::getTurn () {
+    return Turn;
+}
+
+int npc::getHandCardsize (){
+    return CardsInHand.size();
+}
+
+QList<int> npc::getHandCards (){
+    return CardsInHand;
+};
+
+
+void npc::DropCard () {
+    int Cardindex = CardsInHand.indexOf(SelectedCard);
+    qDebug() << " I will drop the card (NPC): "<<SelectedCard;
+    qDebug () <<"The size of card before deleting is (NPC):"<< CardsInHand.size();
+    if (getSelectedCard()) {
+        qDebug () <<"The card index is (NPC):"<< Cardindex;
+        CardsInHand.remove(Cardindex);
+        Field->TakeCard(SelectedCard);
+        qDebug() << " I still have (NPC)" << CardsInHand.size() << " cards in my hand";
+    } else {
+        qDebug() << "My hand is empty now , I have no cards(NPC)";
+    }
+}
+
+QVBoxLayout* npc::Drawcard () {
+    int cardnumber = deck->drawcard();
+    if (!deck->isEmpty()){
+        qDebug()<<"the npc picked picked :"<<cardnumber;
+        CardsInHand.push_back(cardnumber);
+        QVBoxLayout* card = ShowCardImg();
+        return card;
+    }
+    qDebug()<< " i passed here to draw npc card but couldnt";
+    return nullptr;
+}
+
+bool npc::VerifyCards (){
+    qDebug() << "(NPC)Current card inside the field :"<<Field->getcardsuit();
+    qDebug () << "(NPC)Field current card : "<<Field->getCurrentCard();
+    int FieldCurrentSuit = Field->getcardsuit();
+    int FieldCurrentCard = Field->getcardrank();
+    int indexofCardtoplay = -1;
+    int card;
+    for (auto start =CardsInHand.begin ();start != CardsInHand.end(); ++start){
+        card = *start;
+        if ((card-1)/10 == FieldCurrentSuit || card%10 == FieldCurrentCard){
+            indexofCardtoplay = CardsInHand.indexOf(card);
+            qDebug () << card;
+            qDebug () << "(NPC)Card exists with the index : "<< indexofCardtoplay;
+            break;
+        }
+    }
+    qDebug () << CardsInHand;
+    if(indexofCardtoplay != -1){
+        SelectedCard = CardsInHand.at(indexofCardtoplay);
+        qDebug () << "(NPC)i have this card";
+        return true;
+    } else {
+        qDebug () << "(NPC)i dont have a card of this type";
+        return false;
+    }
+};
+
+int npc::getSelectedCard () {
+    if (SelectedCard){
+        return SelectedCard;
+    } else {
+        qDebug() << "(NPC)card doesnt exist yet ";
+        return 0;
+    }
+}
+
+int npc::PlayingCard(){
+    return SelectedCard;
+}
+
