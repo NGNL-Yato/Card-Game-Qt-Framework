@@ -14,12 +14,14 @@
 #include <QtGlobal>
 #include <QTimer>
 #include "LogicOfgame.h"
+#include <QMovie>
 
 class uiscene : public QObject {
     Q_OBJECT
 public:
     uiscene ();
     ~uiscene ();
+    void DeleteAllCards();
 public slots:
     void StartnewGame ();
     void GameEnded ();
@@ -120,8 +122,12 @@ private:
     QImage* Deck_Img;
     int xPos;
     int yPos;
-    QImage* EmptyField_img;
+    QImage* Field_Img;
     int MainMenu;
+    QGraphicsPixmapItem* HandPanel_player;
+    QGraphicsPixmapItem* HandPanel_AI_player;
+    QMovie* GIFS_Party_End;
+    QLabel* GIFLabel_Party_End;
 
 
 signals:
