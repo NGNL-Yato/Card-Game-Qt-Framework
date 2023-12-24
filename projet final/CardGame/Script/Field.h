@@ -16,17 +16,17 @@ private:
     QImage* FieldCurrentImage;
 
 public:
-    field(Deckk* deck);
+    field(Deckk& deck);
     ~field();
 
 public slots:
     int getCurrentCard();
     QImage* ShowCardImg();
-    void RefillEmptyDeck();
+    void RefillEmptyDeck(Deckk& deck);
     bool EmptyField();
     QImage* getImgField();
     void TakeCard (int cardnumber) ;
-    int DrawCard (Deckk* deck);
+    int DrawCard (Deckk& deck);
     int getcardsuit();
     int getcardrank();
     QVector<int> getFieldcards ();

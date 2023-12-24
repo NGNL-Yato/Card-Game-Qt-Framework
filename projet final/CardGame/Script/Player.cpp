@@ -41,7 +41,7 @@ int Player::Updatescore () {
 }
 QVBoxLayout* Player::ShowCardImg (int cardnumber) {
     SelectedCard = cardnumber;
-    QString CurrentcardImg = QString("../Assets/%1.jpg").arg(cardnumber);
+    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/%1.jpg").arg(cardnumber);
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;

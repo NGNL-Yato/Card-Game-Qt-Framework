@@ -9,7 +9,7 @@ Deckk::Deckk(){
     for(int i = 1;i <= 40;i++){
         Deck_cards.push_back(i);
     }
-    DeckBackward = new QImage("../Assets/BackCard.png");
+    DeckBackward = new QImage("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
     *DeckBackward = DeckBackward->scaledToWidth(100);
 
 }
@@ -18,9 +18,9 @@ void Deckk::shuffle(){
     std::random_device rd;
     std::mt19937 g(rd()); //random default seed to generate random number
     std::shuffle(Deck_cards.begin(), Deck_cards.end(), g);
-    //qDebug () << Deck_cards;
+    qDebug () << Deck_cards.size();
     QMediaPlayer* CardShuffle = new QMediaPlayer;
-    CardShuffle->setSource(QUrl::fromLocalFile("../Assets/Shuffle.mp3"));
+    CardShuffle->setSource(QUrl::fromLocalFile("C:/Users/Setup game/Desktop/CardGameQt/Assets/Audio/Shuffle.mp3"));
     QAudioOutput* CardShuffleSound = new QAudioOutput;
     CardShuffleSound->setVolume (0.6);
     CardShuffle->setAudioOutput(CardShuffleSound);
@@ -41,5 +41,8 @@ QImage* Deckk::getImgDeck () {
     return DeckBackward;
 }
 QVector<int> Deckk::getDeckCards(){
-    return Deck_cards;
+    return this->Deck_cards;
+}
+int Deckk::getDecksize (){
+    return  getDeckCards().size();
 }

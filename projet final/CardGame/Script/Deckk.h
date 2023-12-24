@@ -22,6 +22,7 @@ public slots:
     QVector<int> getDeckCards();
     QImage* getImgDeck();
     void PushBack(int value);
+    int getDecksize ();
 
 };
 

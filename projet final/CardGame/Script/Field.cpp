@@ -4,8 +4,8 @@
 #include <QVector>
 #include <qDebug>
 
-field::field (Deckk* deck) : FieldDeck(deck){
-    FieldCurrentImage = new QImage("../Assets/Default_Img_Card.jpg");
+field::field (Deckk& deck) : FieldDeck(& deck){
+    FieldCurrentImage = new QImage("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/Default_Img_Card.jpg");
     *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
     qDebug() << FieldCards;
 }
@@ -14,6 +14,7 @@ QImage* field::getImgField() {
 }
 field::~field () {
     delete FieldCurrentImage;
+    delete FieldDeck;
 }
 int field::getCurrentCard(){
     return *FieldCards->begin();
@@ -21,7 +22,7 @@ int field::getCurrentCard(){
 QImage* field::ShowCardImg () {
     if(!EmptyField() && FieldCurrentImage != nullptr){
         int CurrentCard = getCurrentCard();
-        const QString CurrentcardImg = QString ("../Assets/%1.jpg").arg(CurrentCard);
+        const QString CurrentcardImg = QString ("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/%1.jpg").arg(CurrentCard);
         //qDebug () << " I show the image inside the field ";
         FieldCurrentImage = new QImage(CurrentcardImg);
         *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
@@ -34,17 +35,19 @@ QImage* field::ShowCardImg () {
 QVector<int> field::getFieldcards () {
     return *FieldCards;
 }
-void field::RefillEmptyDeck(){
-    if(FieldDeck->isEmpty())
+void field::RefillEmptyDeck(Deckk& deck){
+    qDebug () << "Inside the deck is actually : ";
+    if( deck.getDecksize() < 3)
     {
-        QVector<int>::Iterator start = std::next(FieldCards->begin());
+        qDebug () << "Refilling the deck ... ";
+        auto start = std::next(FieldCards->begin());
         do{
             int temp = *start;
-            FieldDeck->PushBack(temp);
+            deck.PushBack(temp);
             start = FieldCards->erase(start);
         }while( start != FieldCards->end());
-        qDebug () <<"Temp deck : " << FieldDeck->getDeckCards();
-        FieldDeck->shuffle();
+        qDebug () <<"Temp deck : " << deck.getDeckCards();
+        deck.shuffle();
     }  else {
         qDebug()<<"Current Deck is not empty yet.";
     }
@@ -82,8 +85,8 @@ int field::getcardrank () {
     int currentcardrank = getCurrentCard() % 10;
     return currentcardrank;
 };
-int field::DrawCard (Deckk* deck) {
-    int cardnumber = deck->drawcard();
+int field::DrawCard (Deckk& deck) {
+    int cardnumber = deck.drawcard();
     int forbiddencards[12] = {1, 2, 7, 11, 12, 17, 21, 22, 27, 31, 32, 37};
     while (true) {
         bool isForbidden = false;
@@ -95,7 +98,7 @@ int field::DrawCard (Deckk* deck) {
             }
         }
         if (isForbidden) {
-            cardnumber = deck->drawcard();
+            cardnumber = deck.drawcard();
         } else {
             FieldCards->push_back(cardnumber);
             qDebug() << "The Field contains : " << cardnumber;

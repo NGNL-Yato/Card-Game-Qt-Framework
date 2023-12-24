@@ -20,7 +20,10 @@ public:
     void testing();
     void ChangingCurrentSuit ();
     bool setinsindesuitvalue ();
-    bool getinsindesuitvalue();
+    bool getinsindesuitvalue ();
+    bool getClickable ();
+    bool setClickable ();
+    bool getPlayingtheGame ();
 
 private:
     int givingcards ;
@@ -32,10 +35,8 @@ private:
     bool Win;
     int changingcardtype;
     bool insidethesuitschange;
-
-public slots :
-    void startTesting();
-
+    bool Clickable;
+    bool PlayingtheGame;
 
 signals:
     void cardDrawnplayer1();

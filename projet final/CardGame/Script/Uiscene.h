@@ -43,21 +43,27 @@ public slots:
     void CarddropSound ();
     void CarddrawSound ();
     void ShowHelp ();
+    void Difficulty ();
 
 private:
     QGraphicsScene* entryscene;
     QPushButton* StartingGame;
     QPushButton* Quit;
     QPushButton* Settings;
+    QPushButton* Easy;
+    QPushButton* Hard;
+    QPushButton* Medium;
+    QGraphicsPixmapItem* Difficulty_Choice;
     QGraphicsScene* GameEndedScene;
     QPushButton* CloseGame;
     QPushButton* NextGame;
     QPushButton* Help;
-    QWidget* Tutorial_2_Widget = new QWidget;
-    QWidget* Tutorial_1_Widget = new QWidget;
     QPushButton* Before;
+    QPushButton* Before_2;
     QPushButton* Exit;
     QPushButton* After;
+    QPushButton* Backtomenu;
+    QPushButton* Backtomenu_2;
     QWidget* overlayWidget;
     QGraphicsPixmapItem* Tutorial_2;
     QGraphicsPixmapItem* Tutorial_1;
@@ -76,6 +82,12 @@ private:
     QGraphicsView* view;
     QGraphicsView* newView;
     QGraphicsScene* newScene;
+    QWidget* CenterElement;
+    QVBoxLayout* Fieldzone;
+    QVBoxLayout* Deckzone;
+    QLabel* DeckLabel;
+    QWidget* NPCLabel;
+    QLabel * player1;
     QMediaPlayer *playlist;
     QAudioOutput* audioOutput;
     Player* P1;
@@ -84,6 +96,7 @@ private:
     QHBoxLayout* NPC_hand;
     npc* AI_player;
     field* Tapis;
+    QWidget* HandLabel;
     QLabel* Fieldlabel;
     Deckk* NewDeck;
     QTimer* gameLoopTimer;
@@ -100,6 +113,7 @@ private:
     int selectedButton = 0;
     bool Verifyingskip = false;
     bool insideHelp = false;
+    int Difficulty_value;
 
 signals:
     void drawCardSignal ();
@@ -111,6 +125,7 @@ signals:
     void NpcChoosingSuit ();
     void ChangingFieldSuitValue ();
     void CurrentRoundEnded ();
+    void Choosing_Difficulty ();
 
 };
 

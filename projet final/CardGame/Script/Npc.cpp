@@ -29,7 +29,7 @@ int npc::Updatescore (bool Win) {
     }
 }
 QVBoxLayout* npc::ShowCardImg () {
-    QString CurrentcardImg = QString("../Assets/BackCard.png");
+    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
