@@ -34,6 +34,7 @@ public:
     QList<int> getHandCards ();
     bool isEmpty ();
     int CheckingAllCards();
+    int getFirstCard();
 private:
     int score;
     QList<int> CardsInHand;

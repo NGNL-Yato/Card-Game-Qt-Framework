@@ -3,9 +3,10 @@
 #include "Deckk.h"
 #include <QVector>
 #include <qDebug>
-
+#include <QStandardPaths>
 field::field (Deckk& deck) : FieldDeck(& deck){
-    FieldCurrentImage = new QImage("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/Default_Img_Card.jpg");
+    QString GameFolderPath = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    FieldCurrentImage = new QImage(GameFolderPath + "/CardGameQt/Assets/Cards/Empty_card.png");
     *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
     qDebug() << FieldCards;
 }
@@ -14,7 +15,14 @@ QImage* field::getImgField() {
 }
 field::~field () {
     delete FieldCurrentImage;
-    delete FieldDeck;
+    FieldCurrentImage = nullptr;
+    /*for (auto It = FieldCards->begin (); It != FieldCards->end (); ++It){
+        delete It;
+    }*/
+    if (FieldCards->isEmpty()){
+        qDebug () << "Rah mss7t koulchi ...";
+    }
+    FieldCards->clear();
 }
 int field::getCurrentCard(){
     return *FieldCards->begin();
@@ -22,7 +30,8 @@ int field::getCurrentCard(){
 QImage* field::ShowCardImg () {
     if(!EmptyField() && FieldCurrentImage != nullptr){
         int CurrentCard = getCurrentCard();
-        const QString CurrentcardImg = QString ("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/%1.jpg").arg(CurrentCard);
+        QString GameFolderPath = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+        const QString CurrentcardImg = QString (GameFolderPath + "/CardGameQt/Assets/Cards/%1.jpg").arg(CurrentCard);
         //qDebug () << " I show the image inside the field ";
         FieldCurrentImage = new QImage(CurrentcardImg);
         *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
@@ -36,7 +45,6 @@ QVector<int> field::getFieldcards () {
     return *FieldCards;
 }
 void field::RefillEmptyDeck(Deckk& deck){
-    qDebug () << "Inside the deck is actually : ";
     if( deck.getDecksize() < 3)
     {
         qDebug () << "Refilling the deck ... ";

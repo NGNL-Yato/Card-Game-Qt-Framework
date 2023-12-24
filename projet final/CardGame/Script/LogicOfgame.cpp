@@ -18,17 +18,7 @@ GameLogic::GameLogic (Deckk& deckk,Player& p1,npc& p2, field& Field) {
     Win = true;
     changingcardtype = -5;
 }
-GameLogic::~GameLogic () {
-    delete deck;
-    delete tapis;
-    delete player1;
-    delete player2;
-    
-}
-
-void GameLogic::testing () {
-    emit startPlayer1Turn();
-}
+GameLogic::~GameLogic () {}
 void GameLogic::startPlayer1Turn() {
     qDebug () << " I'm  verifying your card ... Normal Logic";
     qDebug () << player1->getHandElements();
@@ -88,10 +78,10 @@ void GameLogic::startPlayer1Turn() {
                     });
                 }
             } else {
-            QTimer::singleShot(1000, this, [&]() {
-            emit cardDrawnplayer2();
-            });
-            player1->setTurn();
+                player1->setTurn();
+                QTimer::singleShot(1000, this, [=]() {
+                    emit cardDrawnplayer2();
+                });
             }
         }
     } else {
@@ -106,7 +96,7 @@ void GameLogic::ChangingCurrentSuit () {
     if (!player1->isEmpty()){
         if(player1->getTurn()){
             if (player1->GetCurrentCard () != -1){
-                if(player1->GetCurrentSuit() == getChangingCardSuitvalue()){
+                if((player1->GetCurrentSuit() == getChangingCardSuitvalue())||(player1->GetCurrentCard()%10 == 7)){
                     qDebug () << "Valid Card.";
                     emit HideAllButtons ();
                     emit GoingBackToNormal ();

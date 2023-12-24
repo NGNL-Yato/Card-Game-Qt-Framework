@@ -9,6 +9,7 @@ private:
     QVector<int> Deck_cards;
     bool Empty;
     QImage* DeckBackward;
+    float Volume;
 
 public:
     Deckk();
@@ -24,7 +25,8 @@ public slots:
     QImage* getImgDeck();
     void PushBack(int value);
     int getDecksize ();
-
+    float SetVolume(float Volume);
+    float GetVolume();
 };
 
 #endif // DECKK_H

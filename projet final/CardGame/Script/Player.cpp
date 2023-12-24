@@ -2,6 +2,7 @@
 #include <QFile>
 #include <QEvent>
 #include <QMouseEvent>
+#include <QStandardPaths>
 
 Player::Player(){}
 Player::Player (Deckk* deckk, field* Fieldd) : deck(deckk), Field (Fieldd) {
@@ -41,7 +42,8 @@ int Player::Updatescore () {
 }
 QVBoxLayout* Player::ShowCardImg (int cardnumber) {
     SelectedCard = cardnumber;
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/%1.jpg").arg(cardnumber);
+    QString GameFolderPath = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    QString CurrentcardImg = QString(GameFolderPath + "/CardGameQt/Assets/Cards/%1.jpg").arg(cardnumber);
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -169,4 +171,7 @@ bool Player::getGamestarted () {
 }
 bool Player::isEmpty (){
     return this->CardsInHand.empty();
+}
+int Player::GetFirstCard () {
+    return this->CardsInHand.takeFirst();
 }

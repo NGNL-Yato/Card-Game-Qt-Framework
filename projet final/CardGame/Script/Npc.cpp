@@ -1,6 +1,7 @@
 #include "Npc.h"
 #include <QFile>
 #include <QRandomGenerator>
+#include <QStandardPaths>
 
 npc::npc(){}
 npc::npc (Deckk* deckk,field* Fieldd,int Diff) : deck(deckk) ,Field(Fieldd), Difficulty_Tier(Diff) {
@@ -30,7 +31,8 @@ int npc::Updatescore (bool Win) {
     }
 }
 QVBoxLayout* npc::ShowCardImg () {
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
+    QString GameFolderPath = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    QString CurrentcardImg = QString( GameFolderPath + "/CardGameQt/Assets/Cards/BackCard.png");
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -56,11 +58,15 @@ QVBoxLayout* npc::ShowCardImg () {
 bool npc::getTurn () {
     return Turn;
 }
+QList<int> npc::getHandCards (){
+    return CardsInHand;
+}
 int npc::getHandCardsize (){
     return CardsInHand.size();
 }
-QList<int> npc::getHandCards (){
-    return CardsInHand;
+
+int npc::getFirstCard () {
+    return this->CardsInHand.takeFirst();
 }
 void npc::DropCard () {
     int Cardindex = CardsInHand.indexOf(SelectedCard);
@@ -80,13 +86,14 @@ QVBoxLayout* npc::Drawcard () {
     int cardnumber;
     if (this->Difficulty_Tier == 3){ //will Randomly pick a special card when hes gonna pick a card
         if((QRandomGenerator::global()->bounded(1, 4)) == 3){
-       cardnumber = deck->drawSpecialcard();
+            cardnumber = deck->drawSpecialcard();
         } else{
             cardnumber = deck->drawcard();
         }
     } else {
         cardnumber = deck->drawcard();
     }
+    qDebug () << deck->getDecksize();
     if (!deck->isEmpty()){
         qDebug()<<"the npc picked picked :"<<cardnumber;
         CardsInHand.push_back(cardnumber);
