@@ -38,7 +38,7 @@ public slots:
     void HiddingButtons ();
     bool setskip ();
     bool getskip ();
-    void SwitchingtoLastScene ();
+    //void SwitchingtoLastScene ();
     void CallingtheNpcChange ();
     void CarddropSound ();
     void CarddrawSound ();
@@ -53,6 +53,7 @@ private:
     QPushButton* Easy;
     QPushButton* Hard;
     QPushButton* Medium;
+    QGraphicsPixmapItem* backgroundImage;
     QGraphicsPixmapItem* Difficulty_Choice;
     QGraphicsScene* GameEndedScene;
     QPushButton* CloseGame;
@@ -67,6 +68,7 @@ private:
     QWidget* overlayWidget;
     QGraphicsPixmapItem* Tutorial_2;
     QGraphicsPixmapItem* Tutorial_1;
+    QGraphicsPixmapItem* Volume_Asset;
     QPushButton* increaseVolumeButton;
     QPushButton* additionalButton1;
     QPushButton* additionalButton2;
@@ -114,6 +116,13 @@ private:
     bool Verifyingskip = false;
     bool insideHelp = false;
     int Difficulty_value;
+    bool PartyStarted;
+    QImage* Deck_Img;
+    int xPos;
+    int yPos;
+    QImage* EmptyField_img;
+    int MainMenu;
+
 
 signals:
     void drawCardSignal ();

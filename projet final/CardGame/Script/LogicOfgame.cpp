@@ -23,8 +23,9 @@ GameLogic::~GameLogic () {
     delete tapis;
     delete player1;
     delete player2;
-
+    
 }
+
 void GameLogic::testing () {
     emit startPlayer1Turn();
 }
@@ -219,4 +220,8 @@ bool GameLogic::setClickable (){
 }
 bool GameLogic::getPlayingtheGame () {
     return this->PlayingtheGame;
+}
+
+int GameLogic::getPlayer2Difficulty (int var) {
+    return var;
 }

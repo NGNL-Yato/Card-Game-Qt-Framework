@@ -24,6 +24,7 @@ public:
     bool getClickable ();
     bool setClickable ();
     bool getPlayingtheGame ();
+    int getPlayer2Difficulty (int var);
 
 private:
     int givingcards ;

@@ -2,7 +2,7 @@
 #include <QFile>
 
 npc::npc(){}
-npc::npc (Deckk* deckk,field* Fieldd) : deck(deckk) ,Field(Fieldd) {
+npc::npc (Deckk* deckk,field* Fieldd,int Diff) : deck(deckk) ,Field(Fieldd), Difficulty_Tier(Diff) {
     score = 0;
     Turn = false;
 }
@@ -29,7 +29,7 @@ int npc::Updatescore (bool Win) {
     }
 }
 QVBoxLayout* npc::ShowCardImg () {
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
+    QString CurrentcardImg = QString("../Assets/Cards/BackCard.png");
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;

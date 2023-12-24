@@ -16,7 +16,7 @@ class npc {
 
 public:
     npc();
-    npc(Deckk* deckk,field* Field);
+    npc(Deckk* deckk,field* Field, int difficulty);
     ~npc();
     int Updatescore(bool Win);
     QVBoxLayout* Drawcard();
@@ -45,6 +45,7 @@ private:
     field* Field;
     int indexofCardtoplay;
     int HigherCardSuitsnbr;
+    int Difficulty_Tier;
 };
 
 

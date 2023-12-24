@@ -5,7 +5,7 @@
 #include <qDebug>
 
 field::field (Deckk& deck) : FieldDeck(& deck){
-    FieldCurrentImage = new QImage("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/Default_Img_Card.jpg");
+    FieldCurrentImage = new QImage("../Assets/Cards/Default_Img_Card.jpg");
     *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
     qDebug() << FieldCards;
 }
@@ -22,7 +22,7 @@ int field::getCurrentCard(){
 QImage* field::ShowCardImg () {
     if(!EmptyField() && FieldCurrentImage != nullptr){
         int CurrentCard = getCurrentCard();
-        const QString CurrentcardImg = QString ("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/%1.jpg").arg(CurrentCard);
+        const QString CurrentcardImg = QString ("../Assets/Cards/%1.jpg").arg(CurrentCard);
         //qDebug () << " I show the image inside the field ";
         FieldCurrentImage = new QImage(CurrentcardImg);
         *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
