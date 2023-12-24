@@ -343,7 +343,7 @@ debug/moc_LogicOfgame.cpp: ../Script/LogicOfgame.h \
 		../Script/Npc.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
-	'C:\Qt\6.6.1\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/Zakaria/Desktop/Nouveau dossier (5)/CardGameQt/build-CardGame-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -I'C:/Users/Zakaria/Desktop/Nouveau dossier (5)/CardGameQt/Script' -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtMultimedia -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../Script/LogicOfgame.h -o debug/moc_LogicOfgame.cpp
+	'C:\Qt\6.6.1\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/Zakaria/Desktop/Code only v14.1/build-CardGame-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -I'C:/Users/Zakaria/Desktop/Code only v14.1/Script' -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtMultimedia -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../Script/LogicOfgame.h -o debug/moc_LogicOfgame.cpp
 
 debug/moc_Player.cpp: ../Script/Player.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QgraphicsScene \
@@ -540,7 +540,7 @@ debug/moc_Player.cpp: ../Script/Player.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
-	'C:\Qt\6.6.1\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/Zakaria/Desktop/Nouveau dossier (5)/CardGameQt/build-CardGame-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -I'C:/Users/Zakaria/Desktop/Nouveau dossier (5)/CardGameQt/Script' -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtMultimedia -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../Script/Player.h -o debug/moc_Player.cpp
+	'C:\Qt\6.6.1\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/Zakaria/Desktop/Code only v14.1/build-CardGame-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -I'C:/Users/Zakaria/Desktop/Code only v14.1/Script' -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtMultimedia -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../Script/Player.h -o debug/moc_Player.cpp
 
 debug/moc_Uiscene.cpp: ../Script/Uiscene.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsScene \
@@ -745,42 +745,9 @@ debug/moc_Uiscene.cpp: ../Script/Uiscene.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbasictimer.h \
 		../Script/LogicOfgame.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/QMovie \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qmovie.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qimagereader.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qimageiohandler.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qplugin.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qjsonobject.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qjsonvalue.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcborvalue.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcborcommon.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/quuid.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qendian.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/q20algorithm.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfactoryinterface.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.6.1/mingw_64/bin/moc.exe
-	'C:\Qt\6.6.1\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/Zakaria/Desktop/Nouveau dossier (5)/CardGameQt/build-CardGame-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -I'C:/Users/Zakaria/Desktop/Nouveau dossier (5)/CardGameQt/Script' -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtMultimedia -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../Script/Uiscene.h -o debug/moc_Uiscene.cpp
+	'C:\Qt\6.6.1\mingw_64\bin\moc.exe' $(DEFINES) --include 'C:/Users/Zakaria/Desktop/Code only v14.1/build-CardGame-Desktop_Qt_6_6_1_MinGW_64_bit-Debug/debug/moc_predefs.h' -IC:/Qt/6.6.1/mingw_64/mkspecs/win32-g++ -I'C:/Users/Zakaria/Desktop/Code only v14.1/Script' -IC:/Qt/6.6.1/mingw_64/include -IC:/Qt/6.6.1/mingw_64/include/QtMultimedia -IC:/Qt/6.6.1/mingw_64/include/QtWidgets -IC:/Qt/6.6.1/mingw_64/include/QtGui -IC:/Qt/6.6.1/mingw_64/include/QtNetwork -IC:/Qt/6.6.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../Script/Uiscene.h -o debug/moc_Uiscene.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -944,9 +911,7 @@ debug/Deckk.o: ../Script/Deckk.cpp C:/Qt/6.6.1/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.6.1/mingw_64/include/QtMultimedia/qmediaenumdebug.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qmetaobject.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QRandomGenerator \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrandom.h
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qvariant.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Deckk.o ../Script/Deckk.cpp
 
 debug/Field.o: ../Script/Field.cpp ../Script/Field.h \
@@ -1537,9 +1502,7 @@ debug/Npc.o: ../Script/Npc.cpp ../Script/Npc.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QString \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QFile \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qfile.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfiledevice.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QRandomGenerator \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrandom.h
+		C:/Qt/6.6.1/mingw_64/include/QtCore/qfiledevice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Npc.o ../Script/Npc.cpp
 
 debug/Player.o: ../Script/Player.cpp ../Script/Player.h \
@@ -1945,39 +1908,6 @@ debug/Uiscene.o: ../Script/Uiscene.cpp ../Script/Uiscene.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbasictimer.h \
 		../Script/LogicOfgame.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/QMovie \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qmovie.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qimagereader.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qimageiohandler.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qplugin.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qjsonobject.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qjsonvalue.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcborvalue.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcborcommon.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/quuid.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qendian.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/q20algorithm.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfactoryinterface.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsView \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/qgraphicsview.h \
 		C:/Qt/6.6.1/mingw_64/include/QtGui/qpainter.h \
@@ -1996,9 +1926,7 @@ debug/Uiscene.o: ../Script/Uiscene.cpp ../Script/Uiscene.h \
 		C:/Qt/6.6.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		C:/Qt/6.6.1/mingw_64/include/QtWidgets/QGraphicsRectItem \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QEvent \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/QMouseEvent \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/QRandomGenerator \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qrandom.h
+		C:/Qt/6.6.1/mingw_64/include/QtGui/QMouseEvent
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/Uiscene.o ../Script/Uiscene.cpp
 
 debug/main.o: ../Script/main.cpp C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplication \
@@ -2240,23 +2168,7 @@ debug/main.o: ../Script/main.cpp C:/Qt/6.6.1/mingw_64/include/QtWidgets/QApplica
 		C:/Qt/6.6.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.6.1/mingw_64/include/QtCore/qbasictimer.h \
-		../Script/LogicOfgame.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/QMovie \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qmovie.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qimagereader.h \
-		C:/Qt/6.6.1/mingw_64/include/QtGui/qimageiohandler.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qplugin.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qjsonobject.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qjsonvalue.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcborvalue.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qdatetime.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcalendar.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qcborcommon.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/quuid.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qendian.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/q20algorithm.h \
-		C:/Qt/6.6.1/mingw_64/include/QtCore/qfactoryinterface.h
+		../Script/LogicOfgame.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/main.o ../Script/main.cpp
 
 debug/qrc_qmake_qmake_qm_files.o: debug/qrc_qmake_qmake_qm_files.cpp 

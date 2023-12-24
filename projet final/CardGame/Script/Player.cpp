@@ -170,6 +170,3 @@ bool Player::getGamestarted () {
 bool Player::isEmpty (){
     return this->CardsInHand.empty();
 }
-int Player::GetFirstCard () {
-    return this->CardsInHand.takeFirst();
-}

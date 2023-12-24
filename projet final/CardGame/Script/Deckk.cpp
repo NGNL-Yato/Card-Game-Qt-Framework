@@ -14,12 +14,7 @@ Deckk::Deckk(){
     *DeckBackward = DeckBackward->scaledToWidth(100);
 
 }
-Deckk::~Deckk(){
-    Deck_cards.clear();
-    if(Deck_cards.isEmpty()){
-        qDebug () << "Deck mab9ach ...";
-    }
-}
+Deckk::~Deckk(){}
 void Deckk::shuffle(){
     std::random_device rd;
     std::mt19937 g(rd()); //random default seed to generate random number

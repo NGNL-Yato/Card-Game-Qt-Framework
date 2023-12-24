@@ -17,6 +17,7 @@ public:
     int CheckingCardEffect (int card);
     int getChangingCardSuitvalue () ;
     int setChangingCardSuitvalue (int value) ;
+    void testing();
     void ChangingCurrentSuit ();
     bool setinsindesuitvalue ();
     bool getinsindesuitvalue ();
@@ -24,7 +25,6 @@ public:
     bool setClickable ();
     bool getPlayingtheGame ();
     int getPlayer2Difficulty (int var);
-    void startPlayer1Turn();
 
 private:
     int givingcards ;
@@ -44,6 +44,7 @@ signals:
     void cardDrawnplayer2();
     void tapisdraw ();
     void startingGameFinished();
+    void startPlayer1Turn();
     void player2droppingcard();
     void GoingBackToNormal ();
     void HideAllButtons ();

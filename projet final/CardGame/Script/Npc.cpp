@@ -56,15 +56,11 @@ QVBoxLayout* npc::ShowCardImg () {
 bool npc::getTurn () {
     return Turn;
 }
-QList<int> npc::getHandCards (){
-    return CardsInHand;
-}
 int npc::getHandCardsize (){
     return CardsInHand.size();
 }
-
-int npc::getFirstCard () {
-    return this->CardsInHand.takeFirst();
+QList<int> npc::getHandCards (){
+    return CardsInHand;
 }
 void npc::DropCard () {
     int Cardindex = CardsInHand.indexOf(SelectedCard);
@@ -84,7 +80,7 @@ QVBoxLayout* npc::Drawcard () {
     int cardnumber;
     if (this->Difficulty_Tier == 3){ //will Randomly pick a special card when hes gonna pick a card
         if((QRandomGenerator::global()->bounded(1, 4)) == 3){
-            cardnumber = deck->drawSpecialcard();
+       cardnumber = deck->drawSpecialcard();
         } else{
             cardnumber = deck->drawcard();
         }

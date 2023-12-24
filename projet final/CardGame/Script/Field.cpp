@@ -14,14 +14,7 @@ QImage* field::getImgField() {
 }
 field::~field () {
     delete FieldCurrentImage;
-    FieldCurrentImage = nullptr;
-    /*for (auto It = FieldCards->begin (); It != FieldCards->end (); ++It){
-        delete It;
-    }*/
-    if (FieldCards->isEmpty()){
-        qDebug () << "Rah mss7t koulchi ...";
-    }
-    FieldCards->clear();
+    delete FieldDeck;
 }
 int field::getCurrentCard(){
     return *FieldCards->begin();
@@ -43,6 +36,7 @@ QVector<int> field::getFieldcards () {
     return *FieldCards;
 }
 void field::RefillEmptyDeck(Deckk& deck){
+    qDebug () << "Inside the deck is actually : ";
     if( deck.getDecksize() < 3)
     {
         qDebug () << "Refilling the deck ... ";

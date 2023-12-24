@@ -42,7 +42,6 @@ public:
     bool getGamestarted ();
     bool isEmpty ();
 
-    int GetFirstCard();
 private:
     int compteur;
     int score;
