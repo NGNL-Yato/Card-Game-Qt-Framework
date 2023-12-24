@@ -9,9 +9,7 @@ Player::Player (Deckk* deckk, field* Fieldd) : deck(deckk), Field (Fieldd) {
     Turn = false;
     SelectedCard = -1;
 }
-
 Player::~Player () {};
-
 bool Player::setTurn () {
     if(Turn){
         Turn = false;
@@ -24,11 +22,9 @@ bool Player::setTurn () {
         return Turn;
     }
 }
-
 int Player::getCurrentScore () {
     return score;
 }
-
 bool Player::getWin () {
     return Win;
 }
@@ -43,10 +39,9 @@ int Player::Updatescore () {
         return -1;
     }
 }
-
 QVBoxLayout* Player::ShowCardImg (int cardnumber) {
     SelectedCard = cardnumber;
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/%1.jpg").arg(cardnumber);
+    QString CurrentcardImg = QString("../Assets/%1.jpg").arg(cardnumber);
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -58,15 +53,16 @@ QVBoxLayout* Player::ShowCardImg (int cardnumber) {
         return nullptr; // Return nullptr or handle the error appropriately
     }
     CardLabel = new QLabel;
-    CardLabel->setPixmap(QPixmap::fromImage(CardImg->scaledToHeight(140)));
-    CardLabel->setFixedSize(110, 170);
+    CardLabel->setPixmap(QPixmap::fromImage(CardImg->scaledToHeight(150)));
+    CardLabel->setFixedSize(120, 170);
+    CardLabel->setAlignment(Qt::AlignCenter); // To center the image with the hitbox, u ccan take of the Stylesheet to test it
     CardLabel->setProperty("cardNumber", cardnumber);
+    CardLabel->setStyleSheet("background-color: transparent;");
     Cardzone = new QVBoxLayout;
     Cardzone->addWidget(CardLabel);
     CardLabel->installEventFilter(this);
     return Cardzone;
 }
-
 QVBoxLayout* Player::Drawcard () {
     int cardnumber = deck->drawcard();
     qDebug()<<"--------------------------------------------------------------------";
@@ -79,7 +75,6 @@ QVBoxLayout* Player::Drawcard () {
     }
     return nullptr;
 }
-
 int Player::getSelectedCard () {
     if (clickedcard != -1){
         return clickedcard;
@@ -88,7 +83,6 @@ int Player::getSelectedCard () {
         return 0;
     }
 }
-
 int Player::GetCurrentCard(){
     return clickedcard;
 }
@@ -96,7 +90,6 @@ int Player::SetSelectedCard(int card){
     clickedcard=card;
     return clickedcard;
 }
-
 int Player::getHandCardsize () {
     return CardsInHand.size();
 }
@@ -122,7 +115,6 @@ void Player::DropCard () {
         qDebug () << "mazal marb7ti, kml tr7";
     }
 }
-
 bool Player::VerifyCards (int card){
     if(CardsInHand.indexOf(card)!=0){
         qDebug () << "i have this card";
@@ -132,11 +124,9 @@ bool Player::VerifyCards (int card){
         return false;
     }
 }
-
 bool Player::getTurn () {
     return Turn;
 }
-
 bool Player::eventFilter(QObject* object, QEvent* event) {
     if (getTurn() && getGamestarted()){
         if (event->type() == QEvent::MouseButtonPress) {
@@ -158,7 +148,6 @@ bool Player::eventFilter(QObject* object, QEvent* event) {
         return false;
     }
 }
-
 int Player::GetCurrentSuit (){
     if ((SelectedCard-1)/10 == 0){
         return 0;
@@ -172,20 +161,12 @@ int Player::GetCurrentSuit (){
         return -1;
     }
 }
-
-
-
 bool Player::setGamestarted () {
         return Gamestarted = !Gamestarted;
 }
-
 bool Player::getGamestarted () {
     return Gamestarted;
 }
 bool Player::isEmpty (){
-    if (CardsInHand.empty()){
-        return true;
-    } else {
-        return false;
-    }
+    return this->CardsInHand.empty();
 }

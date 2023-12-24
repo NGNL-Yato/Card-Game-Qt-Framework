@@ -5,7 +5,7 @@
 #include <qDebug>
 
 field::field (Deckk* deck) : FieldDeck(deck){
-    FieldCurrentImage = new QImage("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/Default_Img_Card.jpg");
+    FieldCurrentImage = new QImage("../Assets/Default_Img_Card.jpg");
     *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
     qDebug() << FieldCards;
 }
@@ -21,7 +21,7 @@ int field::getCurrentCard(){
 QImage* field::ShowCardImg () {
     if(!EmptyField() && FieldCurrentImage != nullptr){
         int CurrentCard = getCurrentCard();
-        const QString CurrentcardImg = QString ("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/%1.jpg").arg(CurrentCard);
+        const QString CurrentcardImg = QString ("../Assets/%1.jpg").arg(CurrentCard);
         //qDebug () << " I show the image inside the field ";
         FieldCurrentImage = new QImage(CurrentcardImg);
         *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
@@ -31,7 +31,6 @@ QImage* field::ShowCardImg () {
         return nullptr;
     }
 }
-
 QVector<int> field::getFieldcards () {
     return *FieldCards;
 }
@@ -50,11 +49,9 @@ void field::RefillEmptyDeck(){
         qDebug()<<"Current Deck is not empty yet.";
     }
 }
-
 bool field::EmptyField () {
     return FieldCards->empty();
 }
-
 void field::TakeCard (int cardnumber) {
     if(!FieldCards->contains(cardnumber) ){
         qDebug() << "------------------------------------";
@@ -65,7 +62,6 @@ void field::TakeCard (int cardnumber) {
         qDebug () << "Value already pushed inside on the Field";
     }
 }
-
 int field::getcardsuit (){
     int currentcardsuit = getCurrentCard();
     qDebug () << getCurrentCard();
@@ -82,12 +78,10 @@ int field::getcardsuit (){
         return -1;
     }
 };
-
 int field::getcardrank () {
     int currentcardrank = getCurrentCard() % 10;
     return currentcardrank;
 };
-
 int field::DrawCard (Deckk* deck) {
     int cardnumber = deck->drawcard();
     int forbiddencards[12] = {1, 2, 7, 11, 12, 17, 21, 22, 27, 31, 32, 37};

@@ -32,6 +32,7 @@ public:
     int PlayingCard();
     int Choosingthenewsuit ();
     QList<int> getHandCards ();
+    bool isEmpty ();
 
 private:
     int score;

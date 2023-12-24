@@ -6,9 +6,7 @@ npc::npc (Deckk* deckk,field* Fieldd) : deck(deckk) ,Field(Fieldd) {
     score = 0;
     Turn = false;
 }
-
 npc::~npc () {};
-
 bool npc::setTurn () {
     if(Turn){
         Turn = false;
@@ -20,11 +18,9 @@ bool npc::setTurn () {
         return Turn;
     }
 }
-
 int npc::getCurrentScore () {
     return score;
 }
-
 int npc::Updatescore (bool Win) {
     if(Win){
         return score++;
@@ -32,9 +28,8 @@ int npc::Updatescore (bool Win) {
         return -1;
     }
 }
-
 QVBoxLayout* npc::ShowCardImg () {
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/BackCard.png");
+    QString CurrentcardImg = QString("../Assets/BackCard.png");
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -45,10 +40,11 @@ QVBoxLayout* npc::ShowCardImg () {
     qDebug() <<CardImg->size();
     CardLabel = new QLabel;
     //qDebug() << "I append to it the label ";
-    CardLabel->setPixmap(QPixmap::fromImage(CardImg->scaledToHeight(140)));
-    CardLabel->setFixedSize(110, 155);
+    CardLabel->setPixmap(QPixmap::fromImage(CardImg->scaledToHeight(150)));
     //qDebug() << "I fix its size";
-    qDebug() <<CardLabel->size();
+    CardLabel->setFixedSize(120, 170);
+    CardLabel->setAlignment(Qt::AlignCenter); // To center the image with the hitbox, u ccan take of the Stylesheet to test it
+    CardLabel->setStyleSheet("background-color: transparent;");
     QVBoxLayout* Cardzone = new QVBoxLayout;
     //qDebug() << "I fix its boxlayout ";
     Cardzone->addWidget(CardLabel);
@@ -56,20 +52,15 @@ QVBoxLayout* npc::ShowCardImg () {
     qDebug() <<Cardzone->sizeHint();
     return Cardzone;
 }
-
 bool npc::getTurn () {
     return Turn;
 }
-
 int npc::getHandCardsize (){
     return CardsInHand.size();
 }
-
 QList<int> npc::getHandCards (){
     return CardsInHand;
-};
-
-
+}
 void npc::DropCard () {
     int Cardindex = CardsInHand.indexOf(SelectedCard);
     qDebug() << " I will drop the card (NPC): "<<SelectedCard;
@@ -84,7 +75,6 @@ void npc::DropCard () {
         qDebug() << "My hand is empty now , I have no cards(NPC)";
     }
 }
-
 QVBoxLayout* npc::Drawcard () {
     int cardnumber = deck->drawcard();
     if (!deck->isEmpty()){
@@ -96,7 +86,6 @@ QVBoxLayout* npc::Drawcard () {
     qDebug()<< " i passed here to draw npc card but couldnt";
     return nullptr;
 }
-
 bool npc::VerifyCards (){
     qDebug() << "(NPC)Current Card Suit inside the field :"<<Field->getcardsuit();
     qDebug () << "(NPC)Field current card : "<<Field->getCurrentCard();
@@ -123,7 +112,6 @@ bool npc::VerifyCards (){
         return false;
     }
 }
-
 bool npc::VerifyCards (int cardd){
     qDebug () << " New Suit = "<<cardd;
     for (auto start =CardsInHand.begin ();start != CardsInHand.end(); ++start){
@@ -147,7 +135,6 @@ bool npc::VerifyCards (int cardd){
         return false;
     }
 }
-
 int npc::Choosingthenewsuit (){
     HigherCardSuitsnbr = 0;
     int loop =0;
@@ -172,7 +159,6 @@ int npc::Choosingthenewsuit (){
     default: qDebug () << " Value have a problem check it."; return -1;
     }
 }
-
 int npc::getSelectedCard () {
     if (SelectedCard){
         return SelectedCard;
@@ -181,8 +167,9 @@ int npc::getSelectedCard () {
         return 0;
     }
 }
-
 int npc::PlayingCard(){
     return SelectedCard;
 }
-
+bool npc::isEmpty () {
+    return this->CardsInHand.empty();
+}

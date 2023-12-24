@@ -40,21 +40,39 @@ public slots:
     bool getskip ();
     void SwitchingtoLastScene ();
     void CallingtheNpcChange ();
+    void CarddropSound ();
+    void CarddrawSound ();
+    void ShowHelp ();
 
 private:
     QGraphicsScene* entryscene;
     QPushButton* StartingGame;
     QPushButton* Quit;
     QPushButton* Settings;
+    QGraphicsScene* GameEndedScene;
+    QPushButton* CloseGame;
+    QPushButton* NextGame;
+    QPushButton* Help;
+    QWidget* Tutorial_2_Widget = new QWidget;
+    QWidget* Tutorial_1_Widget = new QWidget;
+    QPushButton* Before;
+    QPushButton* Exit;
+    QPushButton* After;
+    QWidget* overlayWidget;
+    QGraphicsPixmapItem* Tutorial_2;
+    QGraphicsPixmapItem* Tutorial_1;
     QPushButton* increaseVolumeButton;
     QPushButton* additionalButton1;
     QPushButton* additionalButton2;
     QPushButton* additionalButton3;
     QPushButton* additionalButton4;
     QPushButton* additionalButton5;
+    QGraphicsPixmapItem* backgroundImageEntryScene;
     int currentVolume;
     int volumeCounter;
     int VolumeUp;
+    int PartyWinner;
+    int Winning_streak;
     QGraphicsView* view;
     QGraphicsView* newView;
     QGraphicsScene* newScene;
@@ -67,7 +85,7 @@ private:
     npc* AI_player;
     field* Tapis;
     QLabel* Fieldlabel;
-    Deckk NewDeck;
+    Deckk* NewDeck;
     QTimer* gameLoopTimer;
     bool isPlayer1Connected = false;
     GameLogic* loadinggamelogic;
@@ -81,6 +99,7 @@ private:
     QPushButton* gr3;
     int selectedButton = 0;
     bool Verifyingskip = false;
+    bool insideHelp = false;
 
 signals:
     void drawCardSignal ();
