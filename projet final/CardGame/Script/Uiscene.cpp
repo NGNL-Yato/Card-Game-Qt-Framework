@@ -31,32 +31,32 @@ uiscene::uiscene() {
     entryscene->setSceneRect(0, 0, 1280, 717);/* Gave this size instead of 720 to not have the scrolling on the mouse */
     view = new QGraphicsView(entryscene);
     view->setFixedSize(1280, 720); //Choosed to fix the size of the screen for test purposes
-    QPixmap SceneBackground_Img("../Assets/Backgroundui.png");
+    QPixmap SceneBackground_Img("CardGameQt/Assets/BackGround/Backgroundui.png");
     QGraphicsPixmapItem* backgroundImage = new QGraphicsPixmapItem(SceneBackground_Img);
     entryscene->addItem(backgroundImage);
     StartingGame = new QPushButton;
-    StartingGame->setIcon(QIcon("../Assets/START.png"));
+    StartingGame->setIcon(QIcon("../Assets/Buttons/START.png"));
     StartingGame->setIconSize(QSize(500, 500));
     StartingGame->setFixedSize(500, 150);
     StartingGame->setStyleSheet("background-color: transparent;");
     StartingGame->move(385, 175);
 
     Settings = new QPushButton;
-    Settings->setIcon(QIcon("../Assets/SETTINGS.png"));
+    Settings->setIcon(QIcon("./Assets/Buttons/SETTINGS.png"));
     Settings->setIconSize(QSize(500, 500));
     Settings->setFixedSize(500, 150);
     Settings->setStyleSheet("background-color: transparent;");
     Settings->move(385, 300);
 
     Quit = new QPushButton;
-    Quit->setIcon(QIcon("../Assets/QUIT.png"));
+    Quit->setIcon(QIcon("../Assets/Buttons/QUIT.png"));
     Quit->setIconSize(QSize(500, 500));
     Quit->setFixedSize(500, 150);
     Quit->setStyleSheet("background-color: transparent;");
     Quit->move(385, 425);
 
     Help = new QPushButton;
-    Help->setIcon(QIcon("../Assets/HELP.png"));
+    Help->setIcon(QIcon("../Assets/Buttons/HELP.png"));
     Help->setIconSize(QSize(100, 100));
     Help->setFixedSize(100, 100);
     Help->setStyleSheet("background-color: transparent;");
@@ -98,7 +98,7 @@ uiscene::uiscene() {
 
 
     playlist = new QMediaPlayer;
-    playlist->setSource(QUrl::fromLocalFile("../Assets/GameMusic1.m4a"));
+    playlist->setSource(QUrl::fromLocalFile("../Assets/Audio/GameMusic1.m4a"));
     //Credit : https://www.youtube.com/watch?v=yuvjuL--gnQ (We were here guitar cover)
     playlist->setLoops(QMediaPlayer::Infinite);
     audioOutput = new QAudioOutput;
@@ -123,7 +123,7 @@ void uiscene::createNewScene() {
     newView = new QGraphicsView(newScene);
     newView->setFixedSize(1280, 720);
     qDebug()<<"I load the new game";
-    QPixmap background("../Assets/BCK.jpg");
+    QPixmap background("../Assets/BackGround/BCK.jpg");
     QGraphicsPixmapItem* Backgroundimg = new QGraphicsPixmapItem(background);
     QPixmap pimg("../Assets/P1.png");
     QLabel * player1 = new QLabel;
@@ -133,7 +133,7 @@ void uiscene::createNewScene() {
     player1->move(xPos, yPos);
 
     Help = new QPushButton;
-    Help->setIcon(QIcon("../Assets/HELP.png"));
+    Help->setIcon(QIcon("../Assets/Buttons/HELP.png"));
     Help->setIconSize(QSize(100, 100));
     Help->setFixedSize(100, 100);
     Help->setStyleSheet("background-color: transparent;");
@@ -151,28 +151,28 @@ void uiscene::createNewScene() {
     tb9 = new QPushButton;
     gr3 = new QPushButton;
 
-    syoufa->setIcon(QIcon("../Assets/sword.png"));
+    syoufa->setIcon(QIcon("../Assets/Buttons/sword.png"));
     syoufa->move(400,470);
     syoufa->setIconSize(QSize(45, 45));
     syoufa->setFixedSize(45, 45);
     syoufa->setStyleSheet("background-color: transparent;");
     syoufa->setProperty("3",value3);
 
-    flouss->setIcon(QIcon("../Assets/gold.png"));
+    flouss->setIcon(QIcon("../Assets/Buttons/gold.png"));
     flouss->move(350,470);
     flouss->setIconSize(QSize(50, 50));
     flouss->setFixedSize(50, 50);
     flouss->setStyleSheet("background-color: transparent;");
     flouss->setProperty("2",value2);
 
-    tb9->setIcon(QIcon("../Assets/drum.png"));
+    tb9->setIcon(QIcon("../Assets/Buttons/drum.png"));
     tb9->move(400,420);
     tb9->setIconSize(QSize(45, 45));
     tb9->setFixedSize(45, 45);
     tb9->setStyleSheet("background-color: transparent;");
     tb9->setProperty("4",value4);
 
-    gr3->setIcon(QIcon("../Assets/pumpkin.png"));
+    gr3->setIcon(QIcon("../Assets/Buttons/pumpkin.png"));
     gr3->move(350,420);
     gr3->setIconSize(QSize(50, 50));
     gr3->setFixedSize(50, 50);
@@ -241,8 +241,6 @@ void uiscene::createNewScene() {
     Fieldlabel = new QLabel;
     Fieldlabel->setFixedSize(EmptyField_img->width(), EmptyField_img->height());
     Fieldlabel->setPixmap(QPixmap::fromImage(*EmptyField_img));
-    Fieldlabel->setStyleSheet("background-color: transparent");
-
 
     QVBoxLayout* Fieldzone = new QVBoxLayout;
     Fieldzone->addWidget(Fieldlabel);
@@ -252,7 +250,7 @@ void uiscene::createNewScene() {
     xPos = (newScene->width() - Fieldlabel->width()) / 2;
     yPos = (newScene->height() - Fieldlabel->height()) / 2;
     CenterElement->move(xPos, yPos);
-    CenterElement->setStyleSheet("background-color: rgba(255, 255, 255, 0.25); border-radius: 15px;");
+    CenterElement->setStyleSheet("border-radius: 15px;background-color: rgba(255, 255, 255, 0.25);");
 
     loadinggamelogic = new GameLogic(*NewDeck,*P1,*AI_player,*Tapis);
 
@@ -386,7 +384,7 @@ void uiscene::GameEnded () {
     GameEndedScene->setSceneRect(0, 0, 1280, 717);
 
     CloseGame = new QPushButton;
-    CloseGame->setIcon(QIcon("../Assets/QUIT.png"));
+    CloseGame->setIcon(QIcon("../Assets/Buttons/QUIT.png"));
     CloseGame->setIconSize(QSize(500, 500));
     CloseGame->setFixedSize(500, 150);
     CloseGame->setStyleSheet("background-color: transparent;");
@@ -394,9 +392,9 @@ void uiscene::GameEnded () {
 
     NextGame = new QPushButton;
     if (PartyWinner){
-        NextGame->setIcon(QIcon("../Assets/RESTART.png"));
+        NextGame->setIcon(QIcon("../Assets/Buttons/RESTART.png"));
     } else {
-        NextGame->setIcon(QIcon("../Assets/TRYAGAIN.png"));
+        NextGame->setIcon(QIcon("../Assets/Buttons/TRYAGAIN.png"));
     }
     NextGame->setIconSize(QSize(500, 500));
     NextGame->setFixedSize(500, 150);
@@ -404,12 +402,16 @@ void uiscene::GameEnded () {
     NextGame->move(385, 350);
 
     Quit = new QPushButton;
-    Quit->setIcon(QIcon("../Assets/QUIT.png"));
+    Quit->setIcon(QIcon("../Assets/Buttons/QUIT.png"));
     Quit->setIconSize(QSize(500, 500));
     Quit->setFixedSize(500, 150);
     Quit->setStyleSheet("background-color: transparent;");
     Quit->move(385, 550);
 
+    QPixmap SceneBackground_Img("../Assets/BackGround/Backgroundui.png");
+    QGraphicsPixmapItem* backgroundImage = new QGraphicsPixmapItem(SceneBackground_Img);
+
+    GameEndedScene->addItem (backgroundImage);
     GameEndedScene->addWidget(NextGame);
     GameEndedScene->addWidget(Quit);
     newView->setScene(GameEndedScene);
@@ -423,7 +425,6 @@ void uiscene::GameEnded () {
     connect(Quit, &QPushButton::clicked, this, &uiscene::QuitGame);
 }
 void uiscene::CardDrawnField() {
-    Tapis->RefillEmptyDeck();
     this->CarddrawSound ();
     qDebug () << " i give card to the field";
     Tapis->DrawCard(NewDeck);
@@ -451,7 +452,6 @@ void uiscene::HiddingButtons (){
     qDebug () << "I change Inside suit value "<< loadinggamelogic->getinsindesuitvalue();
 }
 void uiscene::CardDrawnPlayer() {
-    Tapis->RefillEmptyDeck();
     this->CarddrawSound ();
     qDebug () << " i give cards to myself ";
     QVBoxLayout* temp = P1->Drawcard();
@@ -459,7 +459,6 @@ void uiscene::CardDrawnPlayer() {
     qDebug() << Player_hand;
 }
 void uiscene::CardDrawnNpc() {
-    Tapis->RefillEmptyDeck();
     qDebug () << " i give cards to npc ";
     qDebug () << NewDeck->getDeckCards();
     this->CarddrawSound ();
@@ -490,42 +489,42 @@ void uiscene::ChangeSettings(){
 
     increaseVolumeButton = new QPushButton;
     increaseVolumeButton->move(380, 350);
-    increaseVolumeButton->setIcon(QIcon("../Assets/Button_Volume.png"));
+    increaseVolumeButton->setIcon(QIcon("../Assets/Buttons/Button_Volume.png"));
     increaseVolumeButton->setIconSize(QSize(130, 130));
     increaseVolumeButton->setFixedSize(130, 130);
     increaseVolumeButton->setStyleSheet("background-color: transparent;");
 
     additionalButton1 = new QPushButton;
     additionalButton1->move(540, 295);
-    additionalButton1->setIcon(QIcon("../Assets/Volume_Choice.png"));
+    additionalButton1->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton1->setIconSize(QSize(54, 200));
     additionalButton1->setFixedSize(54, 200);
     additionalButton1->setStyleSheet("background-color: transparent;");
 
     additionalButton2 = new QPushButton;
     additionalButton2->move(610, 295);
-    additionalButton2->setIcon(QIcon("../Assets/Volume_Choice.png"));
+    additionalButton2->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton2->setIconSize(QSize(54, 200));
     additionalButton2->setFixedSize(54, 200);
     additionalButton2->setStyleSheet("background-color: transparent;");
 
     additionalButton3 = new QPushButton;
     additionalButton3->move(670, 295);
-    additionalButton3->setIcon(QIcon("../Assets/Volume_Choice.png"));
+    additionalButton3->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton3->setIconSize(QSize(54, 200));
     additionalButton3->setFixedSize(54, 200);
     additionalButton3->setStyleSheet("background-color: transparent;");
 
     additionalButton4 = new QPushButton;
     additionalButton4->move(730, 295);
-    additionalButton4->setIcon(QIcon("../Assets/Volume_Choice.png"));
+    additionalButton4->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton4->setIconSize(QSize(54, 200));
     additionalButton4->setFixedSize(54, 200);
     additionalButton4->setStyleSheet("background-color: transparent;");
 
     additionalButton5 = new QPushButton;
     additionalButton5->move(790, 295);
-    additionalButton5->setIcon(QIcon("../Assets/Volume_Choice.png"));
+    additionalButton5->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton5->setIconSize(QSize(54, 200));
     additionalButton5->setFixedSize(54, 200);
     additionalButton5->setStyleSheet("background-color: transparent;");
@@ -628,7 +627,7 @@ void uiscene::ChangeSettings(){
     });
 
     QPushButton* Backtomenu = new QPushButton;
-    Backtomenu->setIcon(QIcon("../Assets/BEFORE.png"));
+    Backtomenu->setIcon(QIcon("../Assets/Buttons/BEFORE.png"));
     Backtomenu->move(0,0);
     Backtomenu->setIconSize(QSize(200, 200));
     Backtomenu->setFixedSize(200, 200);
@@ -880,7 +879,7 @@ int selectedIndex = AI_player->getHandCards().indexOf(AI_player->PlayingCard());
 }
 void uiscene::CarddropSound (){
     QMediaPlayer* CarddropAudio = new QMediaPlayer;
-    CarddropAudio->setSource(QUrl::fromLocalFile("../Assets/Crarddrop.m4a"));
+    CarddropAudio->setSource(QUrl::fromLocalFile("../Assets/Audio/Crarddrop.m4a"));
     QAudioOutput* CardShuffleSound = new QAudioOutput;
     CardShuffleSound->setVolume (0.6);
     CarddropAudio->setAudioOutput(CardShuffleSound);
@@ -888,7 +887,7 @@ void uiscene::CarddropSound (){
 };
 void uiscene::CarddrawSound () {
     QMediaPlayer* CarddawAudio = new QMediaPlayer;
-    CarddawAudio->setSource(QUrl::fromLocalFile("../Assets/FlippingCard.mp3"));
+    CarddawAudio->setSource(QUrl::fromLocalFile("../Assets/Audio/FlippingCard.mp3"));
     QAudioOutput* CardShuffleSound = new QAudioOutput;
     CardShuffleSound->setVolume (0.6);
     CarddawAudio->setAudioOutput(CardShuffleSound);
@@ -898,29 +897,29 @@ void uiscene::ShowHelp (){
     Help->hide ();
     insideHelp = true;
     qDebug () << "I enter the tutorial ..." << insideHelp;
-    Tutorial_1->setPixmap(QPixmap("../Assets/TUTORIAL1.png"));
-    Tutorial_2->setPixmap(QPixmap("../Assets/TUTORIAL2.png"));
+    Tutorial_1->setPixmap(QPixmap("../Assets/BackGround/TUTORIAL1.png"));
+    Tutorial_2->setPixmap(QPixmap("../Assets/BackGround/TUTORIAL2.png"));
 
-    After->setIcon(QIcon("../Assets/AFTER.png"));
+    After->setIcon(QIcon("../Assets/Buttons/AFTER.png"));
     After->setIconSize(QSize(100, 100));
     After->setFixedSize(100, 100);
     After->setStyleSheet("background-color: transparent;");
     After->move(1100, 600);
 
-    Before->setIcon(QIcon("../Assets/BEFORE.png"));
+    Before->setIcon(QIcon("../Assets/Buttons/BEFORE.png"));
     Before->setIconSize(QSize(100, 100));
     Before->setFixedSize(100, 100);
     Before->setStyleSheet("background-color: transparent;");
     Before->move(1100, 600);
 
-    Exit->setIcon(QIcon("../Assets/EXIT.png"));
+    Exit->setIcon(QIcon("../Assets/Buttons/EXIT.png"));
     Exit->setIconSize(QSize(100, 100));
     Exit->setFixedSize(100, 100);
     Exit->setStyleSheet("background-color: transparent;");
     Exit->move(1130, 15);
 
     overlayWidget->setGeometry(0, 0, 1280, 717);
-    overlayWidget->setStyleSheet("background-color: rgba(80, 68, 71, 0.50);");
+    overlayWidget->setStyleSheet("background-color: rgba(80, 68, 71, 0.75);");
 
     overlayWidget->show();
     Tutorial_1->show();
