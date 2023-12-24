@@ -41,7 +41,7 @@ int Player::Updatescore () {
 }
 QVBoxLayout* Player::ShowCardImg (int cardnumber) {
     SelectedCard = cardnumber;
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/%1.jpg").arg(cardnumber);
+    QString CurrentcardImg = QString("../Assets/Cards/%1.jpg").arg(cardnumber);
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -57,7 +57,7 @@ QVBoxLayout* Player::ShowCardImg (int cardnumber) {
     CardLabel->setFixedSize(100, 160);
     CardLabel->setAlignment(Qt::AlignCenter); // To center the image with the hitbox, u ccan take of the Stylesheet to test it
     CardLabel->setProperty("cardNumber", cardnumber);
-    CardLabel->setStyleSheet("background-color: transparent;");
+    CardLabel->setStyleSheet("background-color: transparent;");// change the bk color to (255,0,0,1) aka red to see the hitbox
     Cardzone = new QVBoxLayout;
     Cardzone->addWidget(CardLabel);
     CardLabel->installEventFilter(this);

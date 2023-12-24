@@ -15,6 +15,7 @@ public:
     ~Deckk();
 public slots:
 
+    int drawSpecialcard();
     bool isEmpty();
     void shuffle();
     void Refill();

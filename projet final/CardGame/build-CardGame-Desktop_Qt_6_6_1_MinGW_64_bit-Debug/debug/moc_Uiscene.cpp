@@ -50,6 +50,7 @@ static constexpr auto qt_meta_stringdata_CLASSuisceneENDCLASS = QtMocHelpers::st
     "NpcChoosingSuit",
     "ChangingFieldSuitValue",
     "CurrentRoundEnded",
+    "Choosing_Difficulty",
     "StartnewGame",
     "GameEnded",
     "ChangeSettings",
@@ -69,12 +70,15 @@ static constexpr auto qt_meta_stringdata_CLASSuisceneENDCLASS = QtMocHelpers::st
     "HiddingButtons",
     "setskip",
     "getskip",
-    "SwitchingtoLastScene",
-    "CallingtheNpcChange"
+    "CallingtheNpcChange",
+    "CarddropSound",
+    "CarddrawSound",
+    "ShowHelp",
+    "Difficulty"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSuisceneENDCLASS_t {
-    uint offsetsAndSizes[64];
+    uint offsetsAndSizes[72];
     char stringdata0[8];
     char stringdata1[15];
     char stringdata2[1];
@@ -86,27 +90,31 @@ struct qt_meta_stringdata_CLASSuisceneENDCLASS_t {
     char stringdata8[16];
     char stringdata9[23];
     char stringdata10[18];
-    char stringdata11[13];
-    char stringdata12[10];
-    char stringdata13[15];
-    char stringdata14[9];
-    char stringdata15[15];
-    char stringdata16[12];
-    char stringdata17[4];
-    char stringdata18[8];
-    char stringdata19[6];
-    char stringdata20[16];
-    char stringdata21[15];
-    char stringdata22[18];
-    char stringdata23[16];
-    char stringdata24[13];
-    char stringdata25[15];
+    char stringdata11[20];
+    char stringdata12[13];
+    char stringdata13[10];
+    char stringdata14[15];
+    char stringdata15[9];
+    char stringdata16[15];
+    char stringdata17[12];
+    char stringdata18[4];
+    char stringdata19[8];
+    char stringdata20[6];
+    char stringdata21[16];
+    char stringdata22[15];
+    char stringdata23[18];
+    char stringdata24[16];
+    char stringdata25[13];
     char stringdata26[15];
     char stringdata27[15];
-    char stringdata28[8];
+    char stringdata28[15];
     char stringdata29[8];
-    char stringdata30[21];
+    char stringdata30[8];
     char stringdata31[20];
+    char stringdata32[14];
+    char stringdata33[14];
+    char stringdata34[9];
+    char stringdata35[11];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSuisceneENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -123,27 +131,31 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSuisceneENDCLASS_t qt_meta_strin
         QT_MOC_LITERAL(105, 15),  // "NpcChoosingSuit"
         QT_MOC_LITERAL(121, 22),  // "ChangingFieldSuitValue"
         QT_MOC_LITERAL(144, 17),  // "CurrentRoundEnded"
-        QT_MOC_LITERAL(162, 12),  // "StartnewGame"
-        QT_MOC_LITERAL(175, 9),  // "GameEnded"
-        QT_MOC_LITERAL(185, 14),  // "ChangeSettings"
-        QT_MOC_LITERAL(200, 8),  // "QuitGame"
-        QT_MOC_LITERAL(209, 14),  // "createNewScene"
-        QT_MOC_LITERAL(224, 11),  // "eventFilter"
-        QT_MOC_LITERAL(236, 3),  // "obj"
-        QT_MOC_LITERAL(240, 7),  // "QEvent*"
-        QT_MOC_LITERAL(248, 5),  // "event"
-        QT_MOC_LITERAL(254, 15),  // "drawCardOnClick"
-        QT_MOC_LITERAL(270, 14),  // "DeleteUsedCard"
-        QT_MOC_LITERAL(285, 17),  // "DeleteNPCUsedCard"
-        QT_MOC_LITERAL(303, 15),  // "CardDrawnPlayer"
-        QT_MOC_LITERAL(319, 12),  // "CardDrawnNpc"
-        QT_MOC_LITERAL(332, 14),  // "CardDrawnField"
-        QT_MOC_LITERAL(347, 14),  // "ShowingButtons"
-        QT_MOC_LITERAL(362, 14),  // "HiddingButtons"
-        QT_MOC_LITERAL(377, 7),  // "setskip"
-        QT_MOC_LITERAL(385, 7),  // "getskip"
-        QT_MOC_LITERAL(393, 20),  // "SwitchingtoLastScene"
-        QT_MOC_LITERAL(414, 19)   // "CallingtheNpcChange"
+        QT_MOC_LITERAL(162, 19),  // "Choosing_Difficulty"
+        QT_MOC_LITERAL(182, 12),  // "StartnewGame"
+        QT_MOC_LITERAL(195, 9),  // "GameEnded"
+        QT_MOC_LITERAL(205, 14),  // "ChangeSettings"
+        QT_MOC_LITERAL(220, 8),  // "QuitGame"
+        QT_MOC_LITERAL(229, 14),  // "createNewScene"
+        QT_MOC_LITERAL(244, 11),  // "eventFilter"
+        QT_MOC_LITERAL(256, 3),  // "obj"
+        QT_MOC_LITERAL(260, 7),  // "QEvent*"
+        QT_MOC_LITERAL(268, 5),  // "event"
+        QT_MOC_LITERAL(274, 15),  // "drawCardOnClick"
+        QT_MOC_LITERAL(290, 14),  // "DeleteUsedCard"
+        QT_MOC_LITERAL(305, 17),  // "DeleteNPCUsedCard"
+        QT_MOC_LITERAL(323, 15),  // "CardDrawnPlayer"
+        QT_MOC_LITERAL(339, 12),  // "CardDrawnNpc"
+        QT_MOC_LITERAL(352, 14),  // "CardDrawnField"
+        QT_MOC_LITERAL(367, 14),  // "ShowingButtons"
+        QT_MOC_LITERAL(382, 14),  // "HiddingButtons"
+        QT_MOC_LITERAL(397, 7),  // "setskip"
+        QT_MOC_LITERAL(405, 7),  // "getskip"
+        QT_MOC_LITERAL(413, 19),  // "CallingtheNpcChange"
+        QT_MOC_LITERAL(433, 13),  // "CarddropSound"
+        QT_MOC_LITERAL(447, 13),  // "CarddrawSound"
+        QT_MOC_LITERAL(461, 8),  // "ShowHelp"
+        QT_MOC_LITERAL(470, 10)   // "Difficulty"
     },
     "uiscene",
     "drawCardSignal",
@@ -156,6 +168,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSuisceneENDCLASS_t qt_meta_strin
     "NpcChoosingSuit",
     "ChangingFieldSuitValue",
     "CurrentRoundEnded",
+    "Choosing_Difficulty",
     "StartnewGame",
     "GameEnded",
     "ChangeSettings",
@@ -175,8 +188,11 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSuisceneENDCLASS_t qt_meta_strin
     "HiddingButtons",
     "setskip",
     "getskip",
-    "SwitchingtoLastScene",
-    "CallingtheNpcChange"
+    "CallingtheNpcChange",
+    "CarddropSound",
+    "CarddrawSound",
+    "ShowHelp",
+    "Difficulty"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -188,45 +204,50 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSuisceneENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      27,   14, // methods
+      31,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       9,       // signalCount
+      10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  176,    2, 0x06,    1 /* Public */,
-       3,    0,  177,    2, 0x06,    2 /* Public */,
-       4,    0,  178,    2, 0x06,    3 /* Public */,
-       5,    0,  179,    2, 0x06,    4 /* Public */,
-       6,    0,  180,    2, 0x06,    5 /* Public */,
-       7,    0,  181,    2, 0x06,    6 /* Public */,
-       8,    0,  182,    2, 0x06,    7 /* Public */,
-       9,    0,  183,    2, 0x06,    8 /* Public */,
-      10,    0,  184,    2, 0x06,    9 /* Public */,
+       1,    0,  200,    2, 0x06,    1 /* Public */,
+       3,    0,  201,    2, 0x06,    2 /* Public */,
+       4,    0,  202,    2, 0x06,    3 /* Public */,
+       5,    0,  203,    2, 0x06,    4 /* Public */,
+       6,    0,  204,    2, 0x06,    5 /* Public */,
+       7,    0,  205,    2, 0x06,    6 /* Public */,
+       8,    0,  206,    2, 0x06,    7 /* Public */,
+       9,    0,  207,    2, 0x06,    8 /* Public */,
+      10,    0,  208,    2, 0x06,    9 /* Public */,
+      11,    0,  209,    2, 0x06,   10 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      11,    0,  185,    2, 0x0a,   10 /* Public */,
-      12,    0,  186,    2, 0x0a,   11 /* Public */,
-      13,    0,  187,    2, 0x0a,   12 /* Public */,
-      14,    0,  188,    2, 0x0a,   13 /* Public */,
-      15,    0,  189,    2, 0x0a,   14 /* Public */,
-      16,    2,  190,    2, 0x0a,   15 /* Public */,
-      20,    0,  195,    2, 0x0a,   18 /* Public */,
-      21,    0,  196,    2, 0x0a,   19 /* Public */,
-      22,    0,  197,    2, 0x0a,   20 /* Public */,
-      23,    0,  198,    2, 0x0a,   21 /* Public */,
-      24,    0,  199,    2, 0x0a,   22 /* Public */,
-      25,    0,  200,    2, 0x0a,   23 /* Public */,
-      26,    0,  201,    2, 0x0a,   24 /* Public */,
-      27,    0,  202,    2, 0x0a,   25 /* Public */,
-      28,    0,  203,    2, 0x0a,   26 /* Public */,
-      29,    0,  204,    2, 0x0a,   27 /* Public */,
-      30,    0,  205,    2, 0x0a,   28 /* Public */,
-      31,    0,  206,    2, 0x0a,   29 /* Public */,
+      12,    0,  210,    2, 0x0a,   11 /* Public */,
+      13,    0,  211,    2, 0x0a,   12 /* Public */,
+      14,    0,  212,    2, 0x0a,   13 /* Public */,
+      15,    0,  213,    2, 0x0a,   14 /* Public */,
+      16,    0,  214,    2, 0x0a,   15 /* Public */,
+      17,    2,  215,    2, 0x0a,   16 /* Public */,
+      21,    0,  220,    2, 0x0a,   19 /* Public */,
+      22,    0,  221,    2, 0x0a,   20 /* Public */,
+      23,    0,  222,    2, 0x0a,   21 /* Public */,
+      24,    0,  223,    2, 0x0a,   22 /* Public */,
+      25,    0,  224,    2, 0x0a,   23 /* Public */,
+      26,    0,  225,    2, 0x0a,   24 /* Public */,
+      27,    0,  226,    2, 0x0a,   25 /* Public */,
+      28,    0,  227,    2, 0x0a,   26 /* Public */,
+      29,    0,  228,    2, 0x0a,   27 /* Public */,
+      30,    0,  229,    2, 0x0a,   28 /* Public */,
+      31,    0,  230,    2, 0x0a,   29 /* Public */,
+      32,    0,  231,    2, 0x0a,   30 /* Public */,
+      33,    0,  232,    2, 0x0a,   31 /* Public */,
+      34,    0,  233,    2, 0x0a,   32 /* Public */,
+      35,    0,  234,    2, 0x0a,   33 /* Public */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -243,7 +264,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSuisceneENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 18,   17,   19,
+    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 19,   18,   20,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -254,6 +275,9 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSuisceneENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Bool,
     QMetaType::Bool,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -286,6 +310,8 @@ Q_CONSTINIT const QMetaObject uiscene::staticMetaObject = { {
         // method 'ChangingFieldSuitValue'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'CurrentRoundEnded'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Choosing_Difficulty'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'StartnewGame'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -321,9 +347,15 @@ Q_CONSTINIT const QMetaObject uiscene::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'getskip'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        // method 'SwitchingtoLastScene'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'CallingtheNpcChange'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'CarddropSound'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'CarddrawSound'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'ShowHelp'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'Difficulty'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -344,27 +376,31 @@ void uiscene::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 6: _t->NpcChoosingSuit(); break;
         case 7: _t->ChangingFieldSuitValue(); break;
         case 8: _t->CurrentRoundEnded(); break;
-        case 9: _t->StartnewGame(); break;
-        case 10: _t->GameEnded(); break;
-        case 11: _t->ChangeSettings(); break;
-        case 12: _t->QuitGame(); break;
-        case 13: _t->createNewScene(); break;
-        case 14: { bool _r = _t->eventFilter((*reinterpret_cast< std::add_pointer_t<QObject*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QEvent*>>(_a[2])));
+        case 9: _t->Choosing_Difficulty(); break;
+        case 10: _t->StartnewGame(); break;
+        case 11: _t->GameEnded(); break;
+        case 12: _t->ChangeSettings(); break;
+        case 13: _t->QuitGame(); break;
+        case 14: _t->createNewScene(); break;
+        case 15: { bool _r = _t->eventFilter((*reinterpret_cast< std::add_pointer_t<QObject*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QEvent*>>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 15: _t->drawCardOnClick(); break;
-        case 16: _t->DeleteUsedCard(); break;
-        case 17: _t->DeleteNPCUsedCard(); break;
-        case 18: _t->CardDrawnPlayer(); break;
-        case 19: _t->CardDrawnNpc(); break;
-        case 20: _t->CardDrawnField(); break;
-        case 21: _t->ShowingButtons(); break;
-        case 22: _t->HiddingButtons(); break;
-        case 23: { bool _r = _t->setskip();
+        case 16: _t->drawCardOnClick(); break;
+        case 17: _t->DeleteUsedCard(); break;
+        case 18: _t->DeleteNPCUsedCard(); break;
+        case 19: _t->CardDrawnPlayer(); break;
+        case 20: _t->CardDrawnNpc(); break;
+        case 21: _t->CardDrawnField(); break;
+        case 22: _t->ShowingButtons(); break;
+        case 23: _t->HiddingButtons(); break;
+        case 24: { bool _r = _t->setskip();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 24: { bool _r = _t->getskip();
+        case 25: { bool _r = _t->getskip();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 25: _t->SwitchingtoLastScene(); break;
         case 26: _t->CallingtheNpcChange(); break;
+        case 27: _t->CarddropSound(); break;
+        case 28: _t->CarddrawSound(); break;
+        case 29: _t->ShowHelp(); break;
+        case 30: _t->Difficulty(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -432,6 +468,13 @@ void uiscene::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
                 return;
             }
         }
+        {
+            using _t = void (uiscene::*)();
+            if (_t _q_method = &uiscene::Choosing_Difficulty; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 9;
+                return;
+            }
+        }
     }
 }
 
@@ -454,13 +497,13 @@ int uiscene::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 27)
+        if (_id < 31)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 27;
+        _id -= 31;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 27)
+        if (_id < 31)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 27;
+        _id -= 31;
     }
     return _id;
 }
@@ -472,7 +515,10 @@ void uiscene::drawCardSignal()
 }
 
 // SIGNAL 1
-
+void uiscene::handleCardClick()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
 
 // SIGNAL 2
 void uiscene::swappingturns()
@@ -481,6 +527,10 @@ void uiscene::swappingturns()
 }
 
 // SIGNAL 3
+void uiscene::NpcCardHandler()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
 
 // SIGNAL 4
 void uiscene::DisplayThechoices()
@@ -510,5 +560,11 @@ void uiscene::ChangingFieldSuitValue()
 void uiscene::CurrentRoundEnded()
 {
     QMetaObject::activate(this, &staticMetaObject, 8, nullptr);
+}
+
+// SIGNAL 9
+void uiscene::Choosing_Difficulty()
+{
+    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
 }
 QT_WARNING_POP

@@ -65,150 +65,150 @@ uiscene::uiscene() {
     entryscene->setSceneRect(0, 0, 1280, 717);/* Gave this size instead of 720 to not have the scrolling on the mouse */
     view = new QGraphicsView(entryscene);
     view->setFixedSize(1280, 720); //Choosed to fix the size of the screen for test purposes
-    QPixmap SceneBackground_Img("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/Backgroundui.png");
+    QPixmap SceneBackground_Img("../Assets/BackGround/Backgroundui.png");
     backgroundImage = new QGraphicsPixmapItem(SceneBackground_Img);
     entryscene->addItem(backgroundImage);
     StartingGame = new QPushButton;
-    StartingGame->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/START.png"));
+    StartingGame->setIcon(QIcon("../Assets/Buttons/START.png"));
     StartingGame->setIconSize(QSize(500, 500));
     StartingGame->setFixedSize(500, 150);
     StartingGame->setStyleSheet("background-color: transparent;");
     StartingGame->move(385, 175);
 
     Settings = new QPushButton;
-    Settings->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/SETTINGS.png"));
+    Settings->setIcon(QIcon("../Assets/Buttons/SETTINGS.png"));
     Settings->setIconSize(QSize(500, 500));
     Settings->setFixedSize(500, 150);
     Settings->setStyleSheet("background-color: transparent;");
     Settings->move(385, 300);
 
     Backtomenu = new QPushButton;
-    Backtomenu->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/BEFORE.png"));
+    Backtomenu->setIcon(QIcon("../Assets/Buttons/BEFORE.png"));
     Backtomenu->move(0,0);
     Backtomenu->setIconSize(QSize(200, 200));
     Backtomenu->setFixedSize(200, 200);
     Backtomenu->setStyleSheet("background-color: transparent;");
 
     Backtomenu_2 = new QPushButton;
-    Backtomenu_2->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/BEFORE.png"));
+    Backtomenu_2->setIcon(QIcon("../Assets/Buttons/BEFORE.png"));
     Backtomenu_2->move(0,0);
     Backtomenu_2->setIconSize(QSize(200, 200));
     Backtomenu_2->setFixedSize(200, 200);
     Backtomenu_2->setStyleSheet("background-color: transparent;");
 
     Quit = new QPushButton;
-    Quit->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/QUIT.png"));
+    Quit->setIcon(QIcon("../Assets/Buttons/QUIT.png"));
     Quit->setIconSize(QSize(500, 500));
     Quit->setFixedSize(500, 150);
     Quit->setStyleSheet("background-color: transparent;");
     Quit->move(385, 425);
 
     Help = new QPushButton;
-    Help->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/HELP.png"));
+    Help->setIcon(QIcon("../Assets/Buttons/HELP.png"));
     Help->setIconSize(QSize(100, 100));
     Help->setFixedSize(100, 100);
     Help->setStyleSheet("background-color: transparent;");
     Help->move(1130, 15);
 
     Easy = new QPushButton;
-    Easy->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/EASY.png"));
+    Easy->setIcon(QIcon("../Assets/Buttons/EASY.png"));
     Easy->setIconSize(QSize(500, 500));
     Easy->setFixedSize(380, 115);
     Easy->setStyleSheet("background-color: transparent;");
     Easy->move(450, 220);
 
     Medium = new QPushButton;
-    Medium->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/NORMAL.png"));
+    Medium->setIcon(QIcon("../Assets/Buttons/NORMAL.png"));
     Medium->setIconSize(QSize(500, 500));
     Medium->setFixedSize(380, 115);
     Medium->setStyleSheet("background-color: transparent;");
     Medium->move(450, 340);
 
     Hard = new QPushButton;
-    Hard->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/HARD.png"));
+    Hard->setIcon(QIcon("../Assets/Buttons/HARD.png"));
     Hard->setIconSize(QSize(500, 500));
     Hard->setFixedSize(380, 115);
     Hard->setStyleSheet("background-color: transparent;");//set the bgcolor on black to verify the hitbox
     Hard->move(450, 460);
 
-    Difficulty_Choice->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/DIFFICULTY.png"));
+    Difficulty_Choice->setPixmap(QPixmap("../Assets/Buttons/DIFFICULTY.png"));
     Difficulty_Choice->moveBy(323,-100);
 
     increaseVolumeButton = new QPushButton;
     increaseVolumeButton->move(380, 325);
-    increaseVolumeButton->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/Button_Volume.png"));
+    increaseVolumeButton->setIcon(QIcon("../Assets/Buttons/Button_Volume.png"));
     increaseVolumeButton->setIconSize(QSize(130, 130));
     increaseVolumeButton->setFixedSize(130, 130);
     increaseVolumeButton->setStyleSheet("background-color: transparent;");
 
     additionalButton1 = new QPushButton;
     additionalButton1->move(540, 295);
-    additionalButton1->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/Volume_Choice.png"));
+    additionalButton1->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton1->setIconSize(QSize(54, 200));
     additionalButton1->setFixedSize(54, 200);
     additionalButton1->setStyleSheet("background-color: transparent;");
 
     additionalButton2 = new QPushButton;
     additionalButton2->move(610, 295);
-    additionalButton2->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/Volume_Choice.png"));
+    additionalButton2->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton2->setIconSize(QSize(54, 200));
     additionalButton2->setFixedSize(54, 200);
     additionalButton2->setStyleSheet("background-color: transparent;");
 
     additionalButton3 = new QPushButton;
     additionalButton3->move(670, 295);
-    additionalButton3->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/Volume_Choice.png"));
+    additionalButton3->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton3->setIconSize(QSize(54, 200));
     additionalButton3->setFixedSize(54, 200);
     additionalButton3->setStyleSheet("background-color: transparent;");
 
     additionalButton4 = new QPushButton;
     additionalButton4->move(730, 295);
-    additionalButton4->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/Volume_Choice.png"));
+    additionalButton4->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton4->setIconSize(QSize(54, 200));
     additionalButton4->setFixedSize(54, 200);
     additionalButton4->setStyleSheet("background-color: transparent;");
 
     additionalButton5 = new QPushButton;
     additionalButton5->move(790, 295);
-    additionalButton5->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/Volume_Choice.png"));
+    additionalButton5->setIcon(QIcon("../Assets/Buttons/Volume_Choice.png"));
     additionalButton5->setIconSize(QSize(54, 200));
     additionalButton5->setFixedSize(54, 200);
     additionalButton5->setStyleSheet("background-color: transparent;");
 
-    syoufa->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/sword.png"));
+    syoufa->setIcon(QIcon("../Assets/Buttons/sword.png"));
     syoufa->move(300,470);
     syoufa->setIconSize(QSize(45, 45));
     syoufa->setFixedSize(45, 45);
     syoufa->setStyleSheet("background-color: transparent;");
     syoufa->setProperty("3",value3);
 
-    flouss->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/gold.png"));
+    flouss->setIcon(QIcon("../Assets/Buttons/gold.png"));
     flouss->move(250,470);
     flouss->setIconSize(QSize(50, 50));
     flouss->setFixedSize(50, 50);
     flouss->setStyleSheet("background-color: transparent;");
     flouss->setProperty("2",value2);
 
-    tb9->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/drum.png"));
+    tb9->setIcon(QIcon("../Assets/Buttons/drum.png"));
     tb9->move(300,420);
     tb9->setIconSize(QSize(45, 45));
     tb9->setFixedSize(45, 45);
     tb9->setStyleSheet("background-color: transparent;");
     tb9->setProperty("4",value4);
 
-    Volume_Asset->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/VOLUME.png").scaled(300, 95));
+    Volume_Asset->setPixmap(QPixmap("../Assets/Buttons/VOLUME.png").scaled(300, 95));
     Volume_Asset->setPos(425,200);
 
-    gr3->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/pumpkin.png"));
+    gr3->setIcon(QIcon("../Assets/Buttons/pumpkin.png"));
     gr3->move(250,420);
     gr3->setIconSize(QSize(50, 50));
     gr3->setFixedSize(50, 50);
     gr3->setStyleSheet("background-color: transparent;");
     gr3->setProperty("1",value1);
 
-    player1->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/Player.png","PNG").scaled(150,150));
-    QPixmap Cardzone("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/WoodPanel.png");
+    player1->setPixmap(QPixmap("../Assets/Player.png","PNG").scaled(150,150));
+    QPixmap Cardzone("../Assets/BackGround/WoodPanel.png");
 
     HandPanel_player->setPixmap(QPixmap(Cardzone).scaled(750,200));
     HandPanel_AI_player->setPixmap(QPixmap(Cardzone).scaled(750,200));
@@ -381,7 +381,7 @@ uiscene::uiscene() {
 
 
     playlist = new QMediaPlayer;
-    playlist->setSource(QUrl::fromLocalFile("C:/Users/Setup game/Desktop/CardGameQt/Assets/Audio/GameMusic1.m4a"));
+    playlist->setSource(QUrl::fromLocalFile("../Assets/Audio/GameMusic1.m4a"));
     //Credit : https://www.youtube.com/watch?v=yuvjuL--gnQ (We were here guitar cover)
     playlist->setLoops(QMediaPlayer::Infinite);
     audioOutput = new QAudioOutput;
@@ -426,10 +426,10 @@ void uiscene::createNewScene() {
     //newView = new QGraphicsView(newScene);
     //newView->setFixedSize(1280, 720);
     qDebug()<<"I load the new game";
-    /*QPixmap background("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/BCK.jpg");
+    /*QPixmap background("../Assets/BackGround/BCK.jpg");
     QGraphicsPixmapItem* Backgroundimg = new QGraphicsPixmapItem(background);*/
-    //QPixmap pimg("C:/Users/Setup game/Desktop/CardGameQt/Assets/Player.png");
-    backgroundImage->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/BCK.jpg"));
+    //QPixmap pimg("../Assets/Player.png");
+    backgroundImage->setPixmap(QPixmap("../Assets/BackGround/BCK.jpg"));
     //QLabel * player1 = new QLabel;
     int xPos = 100;
     int yPos = 550;
@@ -487,7 +487,7 @@ void uiscene::createNewScene() {
 
     //QLabel* DeckLabel = new QLabel;
     Deck_Img = NewDeck->getImgDeck();
-    DeckLabel->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png").scaled (100, 162));
+    DeckLabel->setPixmap(QPixmap("../Assets/Cards/BackCard.png").scaled (100, 162));
     DeckLabel->setGeometry(363, 124, 100, 162);
     DeckLabel->setFixedSize(100, 162);
     DeckLabel->setStyleSheet("background-color: transparent");
@@ -680,7 +680,7 @@ void uiscene::CallingtheNpcChange () {
 }
 void uiscene::GameEnded () {
     this->PartyStarted = false ; /*Bool that shows that the game ended */
-    backgroundImage->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/Backgroundui.png"));
+    backgroundImage->setPixmap(QPixmap("../Assets/BackGround/Backgroundui.png"));
     CloseGame->show();
     NextGame->show();
     GIFLabel_Party_End->setMovie(GIFS_Party_End);
@@ -694,7 +694,7 @@ void uiscene::GameEnded () {
     GameEndedScene->setSceneRect(0, 0, 1280, 717);*/
     QString result = PartyWinner ? "win" : "lose";
     int RandomGif_nbr = QRandomGenerator::global()->bounded(1, 5); /*If the player wins a winner gif will be loaded */
-    QString EndGameGIF = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/GameEndedGif/%1%2.gif").arg(result).arg(RandomGif_nbr);
+    QString EndGameGIF = QString("../Assets/GameEndedGif/%1%2.gif").arg(result).arg(RandomGif_nbr);
     /*the path will be a random path between 1 and 4*/
     qDebug()<<EndGameGIF;
     GIFS_Party_End->setFileName(EndGameGIF);
@@ -702,16 +702,16 @@ void uiscene::GameEnded () {
     GIFS_Party_End->loopCount();
     GIFLabel_Party_End->move(500,100);
 
-    CloseGame->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/QUIT.png"));
+    CloseGame->setIcon(QIcon("../Assets/Buttons/QUIT.png"));
     CloseGame->setIconSize(QSize(500, 500));
     CloseGame->setFixedSize(500, 150);
     CloseGame->setStyleSheet("background-color: transparent;");
     CloseGame->move(385, 550);
 
     if (PartyWinner){
-        NextGame->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/RESTART.png"));
+        NextGame->setIcon(QIcon("../Assets/Buttons/RESTART.png"));
     } else {
-        NextGame->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/TRYAGAIN.png"));
+        NextGame->setIcon(QIcon("../Assets/Buttons/TRYAGAIN.png"));
     }
     NextGame->setIconSize(QSize(500, 500));
     NextGame->setFixedSize(500, 150);
@@ -720,7 +720,7 @@ void uiscene::GameEnded () {
 
     //Quit->move(385, 550);
 
-    /*QPixmap SceneBackground_Img("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/Backgroundui.png");
+    /*QPixmap SceneBackground_Img("../Assets/BackGround/Backgroundui.png");
     QGraphicsPixmapItem* backgroundImage = new QGraphicsPixmapItem(SceneBackground_Img);*/
 
     //entryscene->addItem (backgroundImage);
@@ -1078,23 +1078,50 @@ void uiscene::DeleteUsedCard() {
     }
 }
 void uiscene::DeleteAllCards() { /* Clearing all cards similarly to the delete cards of player and npc */
-    qDebug() << " I'm gonna delete the items ...";
-    QLayoutItem* item;
+    qDebug() << " I'm gonna delete the cards ...";
+    /*QLayoutItem* item;
     while ((item = Player_hand->takeAt(0)) != nullptr) {
         QWidget* cardWidget = item->widget();
         if (cardWidget) {
             cardWidget->deleteLater();
         }
+        Player_hand->removeWidget(cardWidget);
+        Player_hand->removeItem(item);
+        delete cardWidget;
         delete item;
         qDebug () << "Deleting card player  ...";
-    }
-    while ((item = NPC_hand->takeAt(0)) != nullptr) {
-        QWidget* cardWidget = item->widget();
-        if (cardWidget) {
-            cardWidget->deleteLater();
+    }*/
+    qDebug() << "Deleting all items from NPC_hand...";
+    while (AI_player->getHandCardsize() != 0) {
+        int selectedIndex;
+        if (selectedIndex != -1) {
+            QLayoutItem* item = NPC_hand->itemAt(selectedIndex);
+            if (item && item->layout()) {
+                QVBoxLayout* cardLayout = qobject_cast<QVBoxLayout*>(item->layout());
+                if (cardLayout) {
+                    qDebug() << "Child is a QVBoxLayout";
+                    for (int loop = 0; loop < cardLayout->count(); ++loop) {
+                        QLayoutItem* innerItem = cardLayout->itemAt(loop);
+                        if (innerItem && innerItem->widget()) {
+                            QObject* cardObject = innerItem->widget();
+                            if (cardObject->inherits("QLabel")) {
+                                QLabel* cardLabel = qobject_cast<QLabel*>(cardObject);
+                                //  int cardNumber = cardLabel->property("cardNumber").toInt();
+                                //  qDebug() << "Im printing : " << cardNumber;
+                                cardLabel->clear();
+                                cardLayout->removeWidget(cardLabel);
+                                cardLabel->deleteLater();
+                                //  qDebug() << "Deleted the element";
+                            }
+                        }
+                    }
+                }
+                NPC_hand->removeItem(item);
+                delete cardLayout;
+            }
+        } else {
+            qDebug() << "(NPC)No card in hand ser, Everything has been deleted successfully";
         }
-        delete item;
-        qDebug () << "Deleting card NPC  ...";
     }
 }
 
@@ -1164,7 +1191,7 @@ void uiscene::DeleteNPCUsedCard() {
 }
 void uiscene::CarddropSound (){
     QMediaPlayer* CarddropAudio = new QMediaPlayer;
-    CarddropAudio->setSource(QUrl::fromLocalFile("C:/Users/Setup game/Desktop/CardGameQt/Assets/Audio/Crarddrop.m4a"));
+    CarddropAudio->setSource(QUrl::fromLocalFile("../Assets/Audio/Crarddrop.m4a"));
     QAudioOutput* CardShuffleSound = new QAudioOutput;
     CardShuffleSound->setVolume (0.6);
     CarddropAudio->setAudioOutput(CardShuffleSound);
@@ -1172,7 +1199,7 @@ void uiscene::CarddropSound (){
 };
 void uiscene::CarddrawSound () {
     QMediaPlayer* CarddawAudio = new QMediaPlayer;
-    CarddawAudio->setSource(QUrl::fromLocalFile("C:/Users/Setup game/Desktop/CardGameQt/Assets/Audio/FlippingCard.mp3"));
+    CarddawAudio->setSource(QUrl::fromLocalFile("../Assets/Audio/FlippingCard.mp3"));
     QAudioOutput* CardShuffleSound = new QAudioOutput;
     CardShuffleSound->setVolume (0.6);
     CarddawAudio->setAudioOutput(CardShuffleSound);
@@ -1183,22 +1210,22 @@ void uiscene::ShowHelp (){
     Help->hide ();
     insideHelp = true;
     qDebug () << "I enter the tutorial ..." << insideHelp;
-    Tutorial_1->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/TUTORIAL1.png"));
-    Tutorial_2->setPixmap(QPixmap("C:/Users/Setup game/Desktop/CardGameQt/Assets/BackGround/TUTORIAL2.png"));
+    Tutorial_1->setPixmap(QPixmap("../Assets/BackGround/TUTORIAL1.png"));
+    Tutorial_2->setPixmap(QPixmap("../Assets/BackGround/TUTORIAL2.png"));
 
-    After->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/AFTER.png"));
+    After->setIcon(QIcon("../Assets/Buttons/AFTER.png"));
     After->setIconSize(QSize(100, 100));
     After->setFixedSize(100, 100);
     After->setStyleSheet("background-color: transparent;");
     After->move(1100, 600);
 
-    Before->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/BEFORE.png"));
+    Before->setIcon(QIcon("../Assets/Buttons/BEFORE.png"));
     Before->setIconSize(QSize(100, 100));
     Before->setFixedSize(100, 100);
     Before->setStyleSheet("background-color: transparent;");
     Before->move(1100, 600);
 
-    Exit->setIcon(QIcon("C:/Users/Setup game/Desktop/CardGameQt/Assets/Buttons/EXIT.png"));
+    Exit->setIcon(QIcon("../Assets/Buttons/EXIT.png"));
     Exit->setIconSize(QSize(100, 100));
     Exit->setFixedSize(100, 100);
     Exit->setStyleSheet("background-color: transparent;");

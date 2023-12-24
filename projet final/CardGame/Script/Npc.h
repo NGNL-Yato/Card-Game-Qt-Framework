@@ -33,7 +33,9 @@ public:
     int Choosingthenewsuit ();
     QList<int> getHandCards ();
     bool isEmpty ();
-
+    int CheckingAllCards();
+    void DropThisCard (int& cardvalue);
+   // int getFirstCard();
 private:
     int score;
     QList<int> CardsInHand;

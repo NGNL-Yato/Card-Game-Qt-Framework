@@ -1,5 +1,6 @@
 #include "Npc.h"
 #include <QFile>
+#include <QRandomGenerator>
 
 npc::npc(){}
 npc::npc (Deckk* deckk,field* Fieldd,int Diff) : deck(deckk) ,Field(Fieldd), Difficulty_Tier(Diff) {
@@ -29,7 +30,7 @@ int npc::Updatescore (bool Win) {
     }
 }
 QVBoxLayout* npc::ShowCardImg () {
-    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
+    QString CurrentcardImg = QString("../Assets/Cards/BackCard.png");
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -58,9 +59,18 @@ bool npc::getTurn () {
 int npc::getHandCardsize (){
     return CardsInHand.size();
 }
-QList<int> npc::getHandCards (){
-    return CardsInHand;
+
+void npc::DropThisCard (int& cardvalue) {
+    qDebug () << "I'm deleting the first card ";
+    if (cardvalue != -1){
+        CardsInHand.pop_front();
+    } else {
+        qDebug () << "Rah salat lik carta mn idik sir f7alk...";
+    }
 }
+/*int npc::getFirstCard () {
+    return CardsInHand[0];
+}*/
 void npc::DropCard () {
     int Cardindex = CardsInHand.indexOf(SelectedCard);
     qDebug() << " I will drop the card (NPC): "<<SelectedCard;
@@ -76,7 +86,16 @@ void npc::DropCard () {
     }
 }
 QVBoxLayout* npc::Drawcard () {
-    int cardnumber = deck->drawcard();
+    int cardnumber;
+    if (this->Difficulty_Tier == 3){ //will Randomly pick a special card when hes gonna pick a card
+        if((QRandomGenerator::global()->bounded(1, 4)) == 3){
+            cardnumber = deck->drawSpecialcard();
+        } else{
+            cardnumber = deck->drawcard();
+        }
+    } else {
+        cardnumber = deck->drawcard();
+    }
     if (!deck->isEmpty()){
         qDebug()<<"the npc picked picked :"<<cardnumber;
         CardsInHand.push_back(cardnumber);
@@ -86,6 +105,7 @@ QVBoxLayout* npc::Drawcard () {
     qDebug()<< " i passed here to draw npc card but couldnt";
     return nullptr;
 }
+
 bool npc::VerifyCards (){
     qDebug() << "(NPC)Current Card Suit inside the field :"<<Field->getcardsuit();
     qDebug () << "(NPC)Field current card : "<<Field->getCurrentCard();
@@ -93,13 +113,50 @@ bool npc::VerifyCards (){
     int FieldCurrentCard = Field->getcardrank();
     int indexofCardtoplay = -1;
     int card;
-    for (auto start =CardsInHand.begin ();start != CardsInHand.end(); ++start){
-        card = *start;
-        if ((card-1)/10 == FieldCurrentSuit || card%10 == FieldCurrentCard){
-            indexofCardtoplay = CardsInHand.indexOf(card);
-            qDebug () << card;
-            qDebug () << "(NPC)Card exists with the index : "<< indexofCardtoplay;
-            break;
+    int Trying_toplay;// var that wil be used in the easy difficulty alone
+    if(this->Difficulty_Tier == 3){
+        qDebug () << " GL its hard mode :D";
+        for(auto It = CardsInHand.begin();It != CardsInHand.end() ; It++){
+            int cardrank = *It%10;
+            if((cardrank == 1 || cardrank == 2) && (cardrank-1)/10 == FieldCurrentSuit) {
+                indexofCardtoplay = CardsInHand.indexOf(*It);
+                qDebug () << cardrank;
+                qDebug () << "(NPC)Card exists with the index : "<< indexofCardtoplay;
+                break;
+            } else if ((*It-1)/10 == FieldCurrentSuit || *It%10 == FieldCurrentCard){
+                indexofCardtoplay = CardsInHand.indexOf(*It);
+                qDebug () << cardrank;
+                qDebug () << "(NPC)Card exists with the index : "<< indexofCardtoplay;
+                break;
+            }
+
+            }
+    } else {
+        for (auto start =CardsInHand.begin ();start != CardsInHand.end(); ++start){
+            card = *start;
+            if (this->Difficulty_Tier == 1){
+                if ((card-1)/10 == FieldCurrentSuit || card%10 == FieldCurrentCard){
+                    qDebug () << "Beginner trying to play ... ";
+                    Trying_toplay = QRandomGenerator::global()->bounded(1, 4); // 1 chance out of 2 that the npc will use the indexed card
+                    qDebug () << Trying_toplay;
+                    if (Trying_toplay == 2 || CardsInHand.size() >10){ // to avoid having more than 10cards in hand
+                        indexofCardtoplay = CardsInHand.indexOf(card);
+                        break;
+                    } else {
+                        qDebug () << "I wont play a card yet ... :c";
+                    }
+                }
+            } else if ( this->Difficulty_Tier == 2){
+                //Just a Basic turn here, he check the first card alone
+                if ((card-1)/10 == FieldCurrentSuit || card%10 == FieldCurrentCard){
+                    indexofCardtoplay = CardsInHand.indexOf(card);
+                    qDebug () << card;
+                    qDebug () << "(NPC)Card exists with the index : "<< indexofCardtoplay;
+                    break;
+                }
+            } else {
+                qDebug () << "Ser ... No Difficulty yet ... Just a Safety else, ty.";
+            }
         }
     }
     qDebug () << CardsInHand;
@@ -158,6 +215,7 @@ int npc::Choosingthenewsuit (){
     case 3 : return 3;break;
     default: qDebug () << " Value have a problem check it."; return -1;
     }
+    //This function might be called ChoosingSuit but will be used for hardest difficulty so that the bot will make sense while playing
 }
 int npc::getSelectedCard () {
     if (SelectedCard){

@@ -4,12 +4,13 @@
 #include <QDebug>
 #include <QAudioOutput>
 #include <QMediaPlayer>
+#include <QRandomGenerator>
 
 Deckk::Deckk(){
     for(int i = 1;i <= 40;i++){
         Deck_cards.push_back(i);
     }
-    DeckBackward = new QImage("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
+    DeckBackward = new QImage("../Assets/Cards/BackCard.png");
     *DeckBackward = DeckBackward->scaledToWidth(100);
 
 }
@@ -20,7 +21,7 @@ void Deckk::shuffle(){
     std::shuffle(Deck_cards.begin(), Deck_cards.end(), g);
     qDebug () << Deck_cards.size();
     QMediaPlayer* CardShuffle = new QMediaPlayer;
-    CardShuffle->setSource(QUrl::fromLocalFile("C:/Users/Setup game/Desktop/CardGameQt/Assets/Audio/Shuffle.mp3"));
+    CardShuffle->setSource(QUrl::fromLocalFile("../Assets/Audio/Shuffle.mp3"));
     QAudioOutput* CardShuffleSound = new QAudioOutput;
     CardShuffleSound->setVolume (0.6);
     CardShuffle->setAudioOutput(CardShuffleSound);
@@ -37,6 +38,27 @@ int Deckk::drawcard(){
         //qDebug()<<" i have inside the list "<<Deck_cards;
         return Deck_cards.takeLast();
 }
+int Deckk::drawSpecialcard () { //Special draw method for hard difficulty
+    int SpecialCardsArray[] = {1, 2, 7};
+    int arraySize = sizeof(SpecialCardsArray) / sizeof(SpecialCardsArray[0]);
+    int Special = SpecialCardsArray[QRandomGenerator::global()->bounded(arraySize)];
+    int WantedCard= 0;
+    QVector<int>::Iterator It;
+    for(It = Deck_cards.begin();It != Deck_cards.end() ; It++){
+        int cardrank = *It%10;
+        if(cardrank == Special) {
+            WantedCard = *It;
+            break;
+        }
+    }
+    if (WantedCard != 0){
+        int specialCard = *It;
+        Deck_cards.erase(It);
+        return specialCard;
+    } else {
+        return this->drawcard();
+    }
+}
 QImage* Deckk::getImgDeck () {
     return DeckBackward;
 }
@@ -44,5 +66,5 @@ QVector<int> Deckk::getDeckCards(){
     return this->Deck_cards;
 }
 int Deckk::getDecksize (){
-    return  getDeckCards().size();
+    return this->getDeckCards().size();
 }

@@ -119,16 +119,21 @@ void GameLogic::ChangingCurrentSuit () {
             emit HideAllButtons ();
             if (player2->getSelectedCard()%10 == 7){
                 QTimer::singleShot(300, this, [&]() {
-                emit player2droppingcard ();
-                emit NpcChangingsuit ();
+                    emit player2droppingcard ();
+                    QTimer::singleShot(300, this, [&]() {
+                        emit NpcChangingsuit ();
+                    });
                 });
+
             } else if (player2->getSelectedCard()%10 == 2){
                 if(!player2->isEmpty()){
                     QTimer::singleShot(300, this, [&]() {
                         emit cardDrawnplayer1 ();
-                        QTimer::singleShot(300, this, [=]() {
-                            emit cardDrawnplayer1 ();
-                        });
+                    });
+                    QTimer::singleShot(300, this, [=]() {
+                        emit cardDrawnplayer1 ();
+                    });
+                    QTimer::singleShot(300, this, [=]() {
                         emit player2droppingcard();
                     });
                 }
