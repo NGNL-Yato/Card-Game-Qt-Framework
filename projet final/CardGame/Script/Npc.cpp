@@ -30,7 +30,7 @@ int npc::Updatescore (bool Win) {
     }
 }
 QVBoxLayout* npc::ShowCardImg () {
-    QString CurrentcardImg = QString("../Assets/Cards/BackCard.png");
+    QString CurrentcardImg = QString("C:/Users/Setup game/Desktop/CardGameQt/Assets/Cards/BackCard.png");
     QFile file(CurrentcardImg);
     if (!file.exists()) {
         qDebug() << "File not found: " << CurrentcardImg;
@@ -56,21 +56,16 @@ QVBoxLayout* npc::ShowCardImg () {
 bool npc::getTurn () {
     return Turn;
 }
+QList<int> npc::getHandCards (){
+    return CardsInHand;
+}
 int npc::getHandCardsize (){
     return CardsInHand.size();
 }
 
-void npc::DropThisCard (int& cardvalue) {
-    qDebug () << "I'm deleting the first card ";
-    if (cardvalue != -1){
-        CardsInHand.pop_front();
-    } else {
-        qDebug () << "Rah salat lik carta mn idik sir f7alk...";
-    }
+int npc::getFirstCard () {
+    return this->CardsInHand.takeFirst();
 }
-/*int npc::getFirstCard () {
-    return CardsInHand[0];
-}*/
 void npc::DropCard () {
     int Cardindex = CardsInHand.indexOf(SelectedCard);
     qDebug() << " I will drop the card (NPC): "<<SelectedCard;

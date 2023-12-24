@@ -19,15 +19,10 @@ GameLogic::GameLogic (Deckk& deckk,Player& p1,npc& p2, field& Field) {
     changingcardtype = -5;
 }
 GameLogic::~GameLogic () {
-    delete deck;
+    /*delete deck;
     delete tapis;
     delete player1;
-    delete player2;
-    
-}
-
-void GameLogic::testing () {
-    emit startPlayer1Turn();
+    delete player2;*/
 }
 void GameLogic::startPlayer1Turn() {
     qDebug () << " I'm  verifying your card ... Normal Logic";
