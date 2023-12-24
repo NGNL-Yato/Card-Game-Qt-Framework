@@ -14,6 +14,9 @@ GameLogic::GameLogic (Deckk& deckk,Player& p1,npc& p2, field& Field) {
     player1 = &p1;
     player2 = &p2;
     qDebug () << "logic created ";
+    insidethesuitschange = false;
+    Win = true;
+    changingcardtype = -5;
 };
 
 GameLogic::~GameLogic () {};
@@ -22,30 +25,25 @@ void GameLogic::testing () {
     emit startPlayer1Turn();
 }
 
-
 void GameLogic::startPlayer1Turn() {
-    qDebug() << "------------------------------------";
-    qDebug () << player1->GetCurrentCard();
-    qDebug() << "player turn"<<player1->getTurn();
-    qDebug() << "bot turn"<<player2->getTurn();
-    qDebug() << "------------------------------------";
     if(player1->getTurn()){
         if (player1->GetCurrentCard() != -1){
-            int selectedcard = player1->getSelectedCard() %10;
+            int selectedcard = player1->GetCurrentCard() %10;
             qDebug()<<" i m checking card value "<< selectedcard;
             if (selectedcard == 1){
                 qDebug() << "u should again";
-                player1->setTurn();
             } else if (selectedcard == 2){
                 qDebug()<<" your gonna take 2 ";
                 QTimer::singleShot(300, this, [&]() {
                     emit cardDrawnplayer2 ();
+                    QTimer::singleShot(300, this, [=]() {
                     emit cardDrawnplayer2 ();
+                    });
                 });
-                player1->setTurn();
-                player2->setTurn();
             } else if (selectedcard == 7) {
                 qDebug () << " u can choose the suit ";
+                setChangingCardSuitvalue(player1->GetCurrentSuit());
+                qDebug () << getChangingCardSuitvalue();
             }
 
         } else {
@@ -53,35 +51,105 @@ void GameLogic::startPlayer1Turn() {
         }
     } else {
         if(player2->VerifyCards()){
-            qDebug()<< " im gonna drop a card ";
+            qDebug()<< " (NPC) im gonna drop a card ";
             int selectedcard2 = player2->getSelectedCard() %10;
-            qDebug()<<" i m checking card value "<< selectedcard2;
+            qDebug()<<" (NPC) i m checking card value "<< selectedcard2;
             if (selectedcard2 == 1){
-                qDebug() << "u should again";
+                QTimer::singleShot(300, this, [&]() {
+                qDebug() << " (NPC) u will play again";
                 emit player2droppingcard();
-                player2->setTurn();
+                });
             } else if (selectedcard2 == 2){
-                qDebug()<<" your gonna take 2 ";
-                emit player2droppingcard();
+                qDebug()<<" (NPC) your gonna take 2";
                 QTimer::singleShot(300, this, [&]() {
                     emit cardDrawnplayer1 ();
+                    QTimer::singleShot(300, this, [=]() {
                     emit cardDrawnplayer1 ();
+                    });
+                    emit player2droppingcard();
                 });
-                player1->setTurn();
-                player2->setTurn();
             } else if (selectedcard2 == 7) {
+                QTimer::singleShot(300, this, [&]() {
                 emit player2droppingcard();
-                qDebug () << " u can choose the suit ";
+                });
+                qDebug () << " (NPC) u can choose the suit ";
+                //player1->setTurn ();
+                emit NpcChangingsuit();
+            } else {
+                QTimer::singleShot(300, this, [&]() {
+                    emit player2droppingcard();
+                });
             }
         } else {
         player1->setTurn();
-        player2->setTurn();
+        QTimer::singleShot(300, this, [&]() {
         emit cardDrawnplayer2();
+        });
         }
     }
 }
+
+void GameLogic::ChangingCurrentSuit () {
+    qDebug () << " Starting the value check for new suit ...";
+    qDebug () << "Current should be  : "<< getChangingCardSuitvalue();
+    if(player1->getTurn()){
+        if (player1->GetCurrentCard () != -1 && player1->GetCurrentSuit() == getChangingCardSuitvalue()){
+            qDebug () << "Valid Card.";
+            player1->setTurn ();
+            emit HideAllButtons ();
+            emit GoingBackToNormal ();
+        } else {
+            qDebug () << "You don't have a card yet.";
+        }
+    } else if (player2->VerifyCards (getChangingCardSuitvalue())) {
+        qDebug () << "(NPC) Valid card, game will continue";
+        if (player2->getSelectedCard()%10 == 7){
+            QTimer::singleShot(300, this, [&]() {
+            emit player2droppingcard ();
+            emit NpcChangingsuit ();
+            });
+        } else if (player2->getSelectedCard()%10 == 2){
+            QTimer::singleShot(300, this, [&]() {
+                emit cardDrawnplayer1 ();
+                QTimer::singleShot(300, this, [=]() {
+                    emit cardDrawnplayer1 ();
+                });
+                emit player2droppingcard();
+            });
+        } else if (player2->getSelectedCard()%10 == 1){
+            QTimer::singleShot(300, this, [&]() {
+                qDebug() << " (NPC) u will play again";
+                emit player2droppingcard();
+            });
+        } else {
+            qDebug () << "(NPC) I dont have any special card.";
+           emit HideAllButtons ();
+            QTimer::singleShot(300, this, [&]() {
+           emit player2droppingcard ();
+           emit GoingBackToNormal ();
+           });
+        }
+    } else {
+        qDebug () << "Player 2 will take a card from the deck .";
+        player1->setTurn ();
+        QTimer::singleShot(300, this, [&]() {
+        emit cardDrawnplayer2 ();
+        });
+    }
+}
+
+int GameLogic::getChangingCardSuitvalue () {
+    return changingcardtype;
+}
+
+int GameLogic::setChangingCardSuitvalue (int value) {
+    changingcardtype = value;
+    return changingcardtype;
+}
+
 void GameLogic::StartingGame () {
     qDebug () << " im gonna give cards rn ";
+    qDebug () <<" Deck contains : " << deck->getDeckCards().size();
     givingcards = 0;
     QTimer::singleShot(300, this, [=]() {
     while (givingcards < 4) {
@@ -89,25 +157,30 @@ void GameLogic::StartingGame () {
         QTimer::singleShot(300 * givingcards, this, [&]() {
             emit cardDrawnplayer1();
             qDebug () << " --------------------------------------";
+            qDebug () <<" Deck contains : " << deck->getDeckCards().size();
             loop.quit();
         });
         loop.exec();
         QTimer::singleShot(300 * (givingcards + 1), this, [&]() {
             qDebug () << " --------------------------------------";
             emit cardDrawnplayer2();
+            qDebug () <<" Deck contains : " << deck->getDeckCards().size();
             loop.quit();
         });
        loop.exec();
        ++givingcards;
     }
+    QTimer::singleShot(300, this, [&]() {
     emit tapisdraw ();
-    emit startingGameFinished();
+    });
+    player1->setGamestarted();
+    qDebug () <<" Deck contains : " << deck->getDeckCards().size();
     });
 
 }
 void GameLogic::startTesting() {
     qDebug () << "up up starting the game logic here ";
-    testing();
+    testing ();
 }
 int GameLogic::CheckingCardEffect (int card){
     if (card == 1){
@@ -121,5 +194,10 @@ int GameLogic::CheckingCardEffect (int card){
         return 7;
     }   else return 0;
 }
-
+bool GameLogic::setinsindesuitvalue (){
+    return insidethesuitschange = !insidethesuitschange;
+}
+bool GameLogic::getinsindesuitvalue () {
+    return insidethesuitschange;
+}
 

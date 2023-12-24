@@ -15,11 +15,12 @@ Player::~Player () {};
 bool Player::setTurn () {
     if(Turn){
         Turn = false;
-        qDebug() << " tpassa tour dialk "<<Turn;
+        qDebug() << " tpassa tour dialk ";
         return Turn;
     } else {
         Turn =true;
-        qDebug() << " tour dialk "<<Turn;
+        qDebug() << " tour dialk ";
+        emit myturn ();
         return Turn;
     }
 }
@@ -28,7 +29,13 @@ int Player::getCurrentScore () {
     return score;
 }
 
-int Player::Updatescore (bool Win) {
+bool Player::getWin () {
+    return Win;
+}
+bool Player::setWin () {
+    return Win = !Win;
+}
+int Player::Updatescore () {
     if(Win){
         qDebug() << "Rb7ti ";
         return score++;
@@ -65,7 +72,7 @@ QVBoxLayout* Player::Drawcard () {
     qDebug()<<"--------------------------------------------------------------------";
     qDebug()<<"i have in hand  :"<<CardsInHand;
     if (!deck->isEmpty()){
-        qDebug()<<"u have picked :"<<cardnumber;
+        qDebug()<<"i have picked :"<<cardnumber;
         CardsInHand.push_back(cardnumber);
         QVBoxLayout* card = ShowCardImg(cardnumber);
         return card;
@@ -74,10 +81,10 @@ QVBoxLayout* Player::Drawcard () {
 }
 
 int Player::getSelectedCard () {
-    if (SelectedCard != -1){
-        return SelectedCard;
+    if (clickedcard != -1){
+        return clickedcard;
     } else {
-        qDebug() << "card doesnt exist yet ";
+        qDebug() << "Rah carta 3ndha -1, go back to player cpp to check error";
         return 0;
     }
 }
@@ -112,7 +119,7 @@ void Player::DropCard () {
     if(CardsInHand.length() == 0){
         qDebug () << " u won";
     } else {
-        qDebug () << "mazal";
+        qDebug () << "mazal marb7ti, kml tr7";
     }
 }
 
@@ -131,19 +138,54 @@ bool Player::getTurn () {
 }
 
 bool Player::eventFilter(QObject* object, QEvent* event) {
-    if (event->type() == QEvent::MouseButtonPress) {
-        //qDebug() << "I clicked inside the card";
-        if (object->inherits("QLabel")) {
-            QLabel* label = qobject_cast<QLabel*>(object);
-            if (label) {
-                SelectedCard = label->property("cardNumber").toInt();
-                qDebug() << "Card clicked: " << SelectedCard;
-                SetSelectedCard(SelectedCard);
-                emit CurrentCard(SelectedCard);
-                return true;
+    if (getTurn() && getGamestarted()){
+        if (event->type() == QEvent::MouseButtonPress) {
+            //qDebug() << "I clicked inside the card";
+            if (object->inherits("QLabel")) {
+                QLabel* label = qobject_cast<QLabel*>(object);
+                if (label) {
+                    SelectedCard = label->property("cardNumber").toInt();
+                    qDebug() << "Card clicked: " << SelectedCard;
+                    SetSelectedCard(SelectedCard);
+                    emit CurrentCard(SelectedCard);
+                    return true;
+                }
             }
         }
+        return QObject::eventFilter(object, event);
+    } else {
+        //qDebug () << "hada rah machi tour dialk daba sir ghyrha";
+        return false;
     }
-    return QObject::eventFilter(object, event);
 }
 
+int Player::GetCurrentSuit (){
+    if ((SelectedCard-1)/10 == 0){
+        return 0;
+    } else if ((SelectedCard-1)/10 == 1){
+        return 1;
+    } else if ((SelectedCard-1)/10 == 2){
+        return 2;
+    } else if ((SelectedCard-1)/10 == 3){
+        return 3;
+    } else {
+        return -1;
+    }
+}
+
+
+
+bool Player::setGamestarted () {
+        return Gamestarted = !Gamestarted;
+}
+
+bool Player::getGamestarted () {
+    return Gamestarted;
+}
+bool Player::isEmpty (){
+    if (CardsInHand.empty()){
+        return true;
+    } else {
+        return false;
+    }
+}

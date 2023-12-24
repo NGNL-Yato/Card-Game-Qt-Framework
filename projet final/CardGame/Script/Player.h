@@ -20,10 +20,12 @@ public:
     Player();
     Player(Deckk* deckk,field* Field);
     ~Player();
-    int Updatescore(bool Win);
+    int Updatescore();
     QVBoxLayout* Drawcard();
     int getCurrentScore();
     int getSelectedCard();
+    bool getWin ();
+    bool setWin ();
     bool setTurn ();
     QVBoxLayout* ShowCardImg (int cardnbr);
     void DropCard();
@@ -35,6 +37,10 @@ public:
     bool VerifyCards (int card);
     int SetSelectedCard (int card);
     int GetCurrentCard();
+    int GetCurrentSuit ();
+    bool setGamestarted ();
+    bool getGamestarted ();
+    bool isEmpty ();
 
 private:
     int compteur;
@@ -50,9 +56,12 @@ private:
     int cardindex;
     bool Usablecard;
     int clickedcard = -1;
+    bool Gamestarted = false ;
+    bool Win = false ;
 
 signals:
     void CurrentCard (int SelectedCard);
+    void myturn ();
 
 };
 

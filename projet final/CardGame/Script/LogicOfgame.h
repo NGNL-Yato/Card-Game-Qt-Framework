@@ -15,7 +15,13 @@ public:
     bool getWinner();
     void StartingGame ();
     int CheckingCardEffect (int card);
+    int getChangingCardSuitvalue () ;
+    int setChangingCardSuitvalue (int value) ;
     void testing();
+    void ChangingCurrentSuit ();
+    bool setinsindesuitvalue ();
+    bool getinsindesuitvalue();
+
 private:
     int givingcards ;
     field* tapis;
@@ -23,7 +29,9 @@ private:
     int rank;
     Player* player1;
     npc* player2;
-    bool Win = true;
+    bool Win;
+    int changingcardtype;
+    bool insidethesuitschange;
 
 public slots :
     void startTesting();
@@ -36,6 +44,9 @@ signals:
     void startingGameFinished();
     void startPlayer1Turn();
     void player2droppingcard();
+    void GoingBackToNormal ();
+    void HideAllButtons ();
+    void NpcChangingsuit ();
 
 };
 

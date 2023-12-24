@@ -28,7 +28,9 @@ public:
     QVBoxLayout* ShowCardImg ();
     bool getTurn ();
     bool VerifyCards ();
+    bool VerifyCards (int cardd);
     int PlayingCard();
+    int Choosingthenewsuit ();
     QList<int> getHandCards ();
 
 private:
@@ -41,6 +43,7 @@ private:
     bool Turn;
     field* Field;
     int indexofCardtoplay;
+    int HigherCardSuitsnbr;
 };
 
 

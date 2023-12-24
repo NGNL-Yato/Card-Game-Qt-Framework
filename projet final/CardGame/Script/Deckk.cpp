@@ -4,7 +4,7 @@
 #include <QDebug>
 
 Deckk::Deckk(){
-    for(int i = 1;i < 40;i++){
+    for(int i = 1;i <= 40;i++){
         Deck_cards.push_back(i);
     }
     DeckBackward = new QImage("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/BackCard.png");
@@ -29,15 +29,13 @@ void Deckk::PushBack(int value){
 }
 
 int Deckk::drawcard(){
-    if(!isEmpty()){
         //qDebug()<<" i have inside the list "<<Deck_cards;
         return Deck_cards.takeLast();
-    } else {
-        return -1;
-    }
 }
 QImage* Deckk::getImgDeck () {
     return DeckBackward;
 }
 
-
+QVector<int> Deckk::getDeckCards(){
+    return Deck_cards;
+}

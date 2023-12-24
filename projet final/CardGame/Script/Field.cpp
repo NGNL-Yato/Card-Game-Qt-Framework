@@ -4,7 +4,7 @@
 #include <QVector>
 #include <qDebug>
 
-field::field () {
+field::field (Deckk* deck) : FieldDeck(deck){
     FieldCurrentImage = new QImage("C:/Users/Setup game/Desktop/projet final/CardGame/Assets/Default_Img_Card.jpg");
     *FieldCurrentImage = FieldCurrentImage->scaledToWidth(100);
     qDebug() << FieldCards;
@@ -32,17 +32,20 @@ QImage* field::ShowCardImg () {
     }
 }
 
-void field::RefillEmptyDeck(Deckk* deck){
-    if(deck->isEmpty())
+QVector<int> field::getFieldcards () {
+    return *FieldCards;
+}
+void field::RefillEmptyDeck(){
+    if(FieldDeck->isEmpty())
     {
         QVector<int>::Iterator start = std::next(FieldCards->begin());
-        while( start != FieldCards->end()){
+        do{
             int temp = *start;
-            deck->PushBack(temp);
+            FieldDeck->PushBack(temp);
             start = FieldCards->erase(start);
-        }
-        qDebug () <<"Temp deck : " << &deck;
-        deck->shuffle();
+        }while( start != FieldCards->end());
+        qDebug () <<"Temp deck : " << FieldDeck->getDeckCards();
+        FieldDeck->shuffle();
     }  else {
         qDebug()<<"Current Deck is not empty yet.";
     }

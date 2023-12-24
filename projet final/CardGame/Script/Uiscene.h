@@ -22,6 +22,7 @@ public:
     ~uiscene ();
 public slots:
     void StartnewGame ();
+    void GameEnded ();
     void ChangeSettings ();
     //void ChooseDifficulty();
     void QuitGame ();
@@ -30,16 +31,33 @@ public slots:
     void drawCardOnClick ();
     void DeleteUsedCard ();
     void DeleteNPCUsedCard ();
-    void CardDrawnPlayer();
-    void CardDrawnNpc();
-    void CardDrawnField();
+    void CardDrawnPlayer ();
+    void CardDrawnNpc ();
+    void CardDrawnField ();
+    void ShowingButtons ();
+    void HiddingButtons ();
+    bool setskip ();
+    bool getskip ();
+    void SwitchingtoLastScene ();
+    void CallingtheNpcChange ();
 
 private:
     QGraphicsScene* entryscene;
     QPushButton* StartingGame;
     QPushButton* Quit;
     QPushButton* Settings;
+    QPushButton* increaseVolumeButton;
+    QPushButton* additionalButton1;
+    QPushButton* additionalButton2;
+    QPushButton* additionalButton3;
+    QPushButton* additionalButton4;
+    QPushButton* additionalButton5;
+    int currentVolume;
+    int volumeCounter;
+    int VolumeUp;
     QGraphicsView* view;
+    QGraphicsView* newView;
+    QGraphicsScene* newScene;
     QMediaPlayer *playlist;
     QAudioOutput* audioOutput;
     Player* P1;
@@ -47,19 +65,33 @@ private:
     QHBoxLayout* Player_hand;
     QHBoxLayout* NPC_hand;
     npc* AI_player;
-    field Tapis;
+    field* Tapis;
     QLabel* Fieldlabel;
     Deckk NewDeck;
     QTimer* gameLoopTimer;
     bool isPlayer1Connected = false;
     GameLogic* loadinggamelogic;
-
+    QPushButton* syoufa;
+    int value1;//1 for syoufa
+    int value2;//2 for flouss
+    int value3;//3 for tb9
+    int value4;//4 for gr3
+    QPushButton* flouss;
+    QPushButton* tb9;
+    QPushButton* gr3;
+    int selectedButton = 0;
+    bool Verifyingskip = false;
 
 signals:
     void drawCardSignal ();
-    void handleCardClick (int cardNumber);
+    void handleCardClick ();
     void swappingturns ();
     void NpcCardHandler ();
+    void DisplayThechoices ();
+    void ChangingDeckValue ();
+    void NpcChoosingSuit ();
+    void ChangingFieldSuitValue ();
+    void CurrentRoundEnded ();
 
 };
 

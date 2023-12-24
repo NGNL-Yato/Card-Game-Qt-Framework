@@ -19,7 +19,7 @@ public slots:
     void shuffle();
     void Refill();
     int drawcard();
-    QVector<int>::iterator getCurrentCard();
+    QVector<int> getDeckCards();
     QImage* getImgDeck();
     void PushBack(int value);
 

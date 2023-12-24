@@ -79,6 +79,7 @@ void npc::DropCard () {
         CardsInHand.remove(Cardindex);
         Field->TakeCard(SelectedCard);
         qDebug() << " I still have (NPC)" << CardsInHand.size() << " cards in my hand";
+        qDebug () << "(NPC) I have in hand : "<<getHandCards();
     } else {
         qDebug() << "My hand is empty now , I have no cards(NPC)";
     }
@@ -97,7 +98,7 @@ QVBoxLayout* npc::Drawcard () {
 }
 
 bool npc::VerifyCards (){
-    qDebug() << "(NPC)Current card inside the field :"<<Field->getcardsuit();
+    qDebug() << "(NPC)Current Card Suit inside the field :"<<Field->getcardsuit();
     qDebug () << "(NPC)Field current card : "<<Field->getCurrentCard();
     int FieldCurrentSuit = Field->getcardsuit();
     int FieldCurrentCard = Field->getcardrank();
@@ -121,7 +122,56 @@ bool npc::VerifyCards (){
         qDebug () << "(NPC)i dont have a card of this type";
         return false;
     }
-};
+}
+
+bool npc::VerifyCards (int cardd){
+    qDebug () << " New Suit = "<<cardd;
+    for (auto start =CardsInHand.begin ();start != CardsInHand.end(); ++start){
+        if ((*start-1)/10 == cardd || *start%10 == 7){
+            indexofCardtoplay = CardsInHand.indexOf(*start);
+            qDebug () << *start;
+            qDebug () << "(NPC)Card exists with the index : "<< indexofCardtoplay;
+            break;
+        }
+        if (indexofCardtoplay){
+            indexofCardtoplay = -1;
+        }
+    }
+    qDebug () << CardsInHand;
+    if(indexofCardtoplay != -1){
+        SelectedCard = CardsInHand.at(indexofCardtoplay);
+        qDebug () << "(NPC) i have this card";
+        return true;
+    } else {
+        qDebug () << "(NPC) i dont have a card of this type";
+        return false;
+    }
+}
+
+int npc::Choosingthenewsuit (){
+    HigherCardSuitsnbr = 0;
+    int loop =0;
+    while (loop < 4){
+        int Highestsuit = 0;
+        for (auto start =CardsInHand.begin ();start != CardsInHand.end(); ++start){
+            if((*start-1) /10 == loop){
+                Highestsuit ++;
+            }
+        }
+        if (HigherCardSuitsnbr < Highestsuit){
+            HigherCardSuitsnbr = loop;
+            qDebug () << " I have a lot  of card with the suit :" << HigherCardSuitsnbr;
+        }
+        loop++;
+    }
+    switch(HigherCardSuitsnbr){
+    case 0 : return 0;break;
+    case 1 : return 1;break;
+    case 2 : return 2;break;
+    case 3 : return 3;break;
+    default: qDebug () << " Value have a problem check it."; return -1;
+    }
+}
 
 int npc::getSelectedCard () {
     if (SelectedCard){
