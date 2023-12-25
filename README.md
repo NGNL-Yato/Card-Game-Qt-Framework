@@ -12,4 +12,13 @@ Qt is a free and open-source widget toolkit for creating graphical user interfac
 The Code is inside the Folder CardGameQT/Script
 License
 
+
+Installation
+Windows
+Download the installer from the releases page.
+Run the installer and follow the on-screen instructions.
+Download the /Gamefolder/CardGameQt/Assets Folder and put it in your desktop
+Launch the game.
+
+
 Qt is licensed and available under multiple licenses.
